@@ -10,3 +10,4 @@ dist
 !.env.example
 CAPTURE.md
 CAPTURE-2.md
+tsconfig.tsbuildinfo
