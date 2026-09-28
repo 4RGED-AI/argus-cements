@@ -1,0 +1,12 @@
+node_modules
+.next
+out
+dist
+.DS_Store
+*.log
+.vercel
+.env
+.env.*
+!.env.example
+CAPTURE.md
+CAPTURE-2.md
