@@ -165,7 +165,7 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
             <div className="nav-col">
               <button className="btn nav-btn menu-toggle" type="button" onClick={() => {
                 setMenuOpen(true);
-                setOpenGroup(null);
+                setOpenGroup(nav.left[0]?.label ?? "Products");
               }}>
                 <div className="btn-inner">
                   <span className="btn-text">Menu</span>
@@ -278,83 +278,56 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
                         <button className="btn btn-large menu-close" type="button" onClick={closeMenu}>
                           <div className="btn-inner">
                             <span className="btn-text">Close</span>
-                            <div className="btn-icon">
-                              <div className="icon" style={{ width: "100%", height: "100%" }}>
-                                <PlusIcon />
-                              </div>
-                            </div>
                           </div>
                         </button>
                       </div>
-                      <div className="mobile-menu_title-bar">
-                        {openGroup ? (
-                          <button className="mobile-menu_header-close" type="button" onClick={() => setOpenGroup(null)}>
-                            {openGroup}
+                      <div className="mobile-menu_tabs" role="tablist">
+                        {nav.left.map((item) => (
+                          <button
+                            key={item.label}
+                            className={`mobile-menu_tab${openGroup === item.label ? " is-active" : ""}`}
+                            type="button"
+                            role="tab"
+                            aria-selected={openGroup === item.label}
+                            onClick={() => setOpenGroup(item.label)}
+                          >
+                            {item.label}
                           </button>
-                        ) : (
-                          <Link className="mobile-menu_home-link" href="/" onClick={closeMenu}>
-                            Home
-                          </Link>
-                        )}
+                        ))}
                       </div>
-                      {!openGroup ? (
-                        <div className="mobile-menu_nav">
-                          {nav.left.map((item) => (
-                            <button
-                              key={item.label}
-                              className="mobile-menu_accordion-trigger"
-                              type="button"
-                              onClick={() => setOpenGroup(item.label)}
-                            >
-                              <span>{item.label}</span>
-                              <span style={{ width: 20, height: 20 }}>
-                                <PlusIcon />
-                              </span>
-                            </button>
-                          ))}
-                        </div>
-                      ) : (
-                        <div className="mobile-menu_content">
-                          {activeNav?.groups.map((group, gi) => (
-                            <div className="menu-group" key={group.title}>
-                              {gi > 0 ? <div className="menu-line" /> : null}
-                              <div className="menu-group_links">
-                                <div className="menu-dropdown_title">{group.title}</div>
-                                {group.links.map((link) =>
-                                  link.external ? (
-                                    <a key={link.href} className="nav-link is-external" href={link.href} target="_blank" rel="noopener noreferrer">
-                                      {link.label}
-                                    </a>
-                                  ) : (
-                                    <Link key={link.href} className="nav-link" href={link.href} onClick={closeMenu}>
-                                      {link.label}
-                                    </Link>
-                                  ),
-                                )}
-                              </div>
+                      <div className="mobile-menu_content">
+                        <Link className="nav-link mobile-menu_home-link" href="/" onClick={closeMenu}>
+                          Home
+                        </Link>
+                        {activeNav?.groups.map((group, gi) => (
+                          <div className="menu-group" key={group.title}>
+                            {gi > 0 ? <div className="menu-line" /> : null}
+                            <div className="menu-group_links">
+                              <div className="menu-dropdown_title">{group.title}</div>
+                              {group.links.map((link) =>
+                                link.external ? (
+                                  <a key={link.href} className="nav-link is-external" href={link.href} target="_blank" rel="noopener noreferrer">
+                                    {link.label}
+                                  </a>
+                                ) : (
+                                  <Link key={link.href} className="nav-link" href={link.href} onClick={closeMenu}>
+                                    {link.label}
+                                  </Link>
+                                ),
+                              )}
                             </div>
-                          ))}
-                        </div>
-                      )}
+                          </div>
+                        ))}
+                      </div>
                       <div className="mobile-menu_footer">
                         <Link className="btn btn-large" href="/prices" onClick={closeMenu}>
                           <div className="btn-inner">
                             <span className="btn-text">Price List</span>
-                            <div className="btn-icon">
-                              <div className="icon" style={{ width: "100%", height: "100%" }}>
-                                <PlusIcon />
-                              </div>
-                            </div>
                           </div>
                         </Link>
                         <Link className="btn btn-large hover-orange" href="/enquire" onClick={closeMenu}>
                           <div className="btn-inner">
                             <span className="btn-text">Enquire now</span>
-                            <div className="btn-icon">
-                              <div className="icon" style={{ width: "100%", height: "100%" }}>
-                                <PlusIcon />
-                              </div>
-                            </div>
                           </div>
                         </Link>
                       </div>
