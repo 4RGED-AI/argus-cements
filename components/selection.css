@@ -1,0 +1,6 @@
+/* Site-wide text selection colour (imported once in app/layout.tsx).
+   Nothing else in the site defines ::selection. */
+::selection {
+  background: var(--wd_orange);
+  color: var(--wd_white);
+}

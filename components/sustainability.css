@@ -1,0 +1,481 @@
+/* Sustainability page (/about/sustainability). Classes use the sn- prefix.
+   Patterns follow the Foundation page (foundation.css), sustainability-led. */
+
+.sn-note {
+  display: inline-block;
+  margin-bottom: var(--size-3);
+  padding: 0.6em 1em;
+  border: 1px dashed currentColor;
+  border-radius: 999px;
+  opacity: 0.7;
+}
+
+.sn-h {
+  margin-top: 0.6em;
+  margin-bottom: 0.8em;
+}
+
+.sn-center {
+  text-align: center;
+  max-width: 20em;
+}
+
+.sn-body {
+  margin-top: 1em;
+}
+
+/* Top: starts on white under the fixed nav (orange here, see about-nav.css). */
+.sn-top {
+  padding-top: calc(max(104px, 7.25vw) + var(--size-5));
+  padding-bottom: var(--size-10);
+}
+
+.sn-top_layout {
+  align-items: end;
+}
+
+.sn-top_head {
+  grid-column: 2 / span 5;
+}
+
+.sn-title {
+  margin-top: 0.4em;
+  font: 400 clamp(2.75rem, 5.5vw, 5.25rem) / 1 var(--font-display);
+  text-transform: uppercase;
+}
+
+.sn-pillars {
+  grid-column: 8 / span 4;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sn-pillar {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25em;
+  padding: 0.9em 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.sn-pillar:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.sn-pillar_num {
+  color: var(--wd_orange);
+}
+
+.sn-pillar_text {
+  font: 400 var(--size-1625, 1.6rem) / 1.1 var(--font-display);
+  text-transform: uppercase;
+}
+
+/* 7% band: deck photo behind a dark shade. */
+.sn-stat {
+  position: relative;
+  overflow: hidden;
+  color: var(--wd_white);
+  background: var(--wd_black, #000);
+  padding: var(--size-10) 0;
+  text-align: center;
+}
+
+.sn-stat_bg {
+  object-fit: cover;
+}
+
+.sn-stat_shade {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.sn-stat_inner {
+  position: relative;
+}
+
+.sn-stat_value {
+  font: 400 clamp(6rem, 16vw, 15rem) / 0.9 var(--font-display);
+}
+
+.sn-stat_label {
+  margin-top: 0.4em;
+  max-width: 16em;
+  text-transform: uppercase;
+}
+
+.sn-stat_note {
+  margin-top: 1em;
+  opacity: 0.8;
+}
+
+.sn-stat_credit {
+  position: absolute;
+  right: 1.5em;
+  bottom: 1em;
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+/* Converts this into this */
+.sn-convert {
+  padding: var(--size-5) 0;
+}
+
+.sn-convert_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gutter-x, 1.5em);
+}
+
+.sn-convert_item {
+  position: relative;
+  margin: 0;
+}
+
+.sn-convert_image {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+
+/* Bottom shade so the white labels read on both photos. */
+.sn-convert_image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) 55%);
+}
+
+.sn-convert_item.is-before .sn-convert_image img {
+  filter: grayscale(1);
+}
+
+.sn-convert_label {
+  position: absolute;
+  left: 0.75em;
+  bottom: 0.6em;
+  color: var(--wd_white);
+  text-transform: uppercase;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
+}
+
+/* Heading left, list right */
+.sn-split {
+  align-items: start;
+}
+
+.sn-split_head {
+  grid-column: 2 / span 4;
+}
+
+.sn-split_body {
+  grid-column: 7 / span 5;
+}
+
+.padding-large.sn-benefits {
+  padding-top: var(--size-5);
+}
+
+.sn-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sn-list li {
+  position: relative;
+  padding: 1em 0 1em 1.75em;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.sn-list li:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.sn-list li::before {
+  content: "";
+  position: absolute;
+  left: 0.25em;
+  top: 1.55em;
+  width: 0.5em;
+  height: 1px;
+  background: var(--wd_orange);
+}
+
+/* Building figures and award */
+.padding-large.sn-building {
+  padding-top: 0;
+}
+
+.sn-figures {
+  list-style: none;
+  margin: var(--size-3) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.sn-figure {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+  padding: 2em 1.5em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.sn-figure:not(:nth-child(3n + 1)) {
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.sn-figure_value {
+  font: 400 var(--size-2625) / 1 var(--font-display);
+  text-transform: uppercase;
+  color: var(--wd_orange);
+}
+
+.sn-award {
+  margin-top: var(--size-5);
+  align-items: center;
+}
+
+.sn-award_image {
+  grid-column: 4 / span 2;
+}
+
+.sn-award_image img {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.sn-award_text {
+  grid-column: 7 / span 4;
+}
+
+.sn-link,
+.sn-card_more {
+  display: inline-block;
+  margin-top: 1.5em;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.4em;
+}
+
+.sn-link:hover {
+  color: var(--wd_orange);
+}
+
+/* Waste streams */
+.padding-large.sn-waste {
+  padding-top: 0;
+}
+
+.sn-waste_title {
+  margin-top: 0.3em;
+}
+
+@media (min-width: 768px) {
+  .sn-waste .section-title-xxl {
+    font-size: calc(var(--size-20) * 0.36);
+  }
+}
+
+.sn-chips {
+  list-style: none;
+  margin: var(--size-5) auto 0;
+  padding: 0;
+  max-width: 60em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75em;
+}
+
+.sn-chip {
+  padding: 0.85em 1.4em;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 999px;
+}
+
+/* Waste-based projects */
+.padding-large.sn-projects {
+  padding-top: 0;
+}
+
+.sn-cards {
+  list-style: none;
+  margin: var(--size-3) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gutter-x, 1.5em);
+}
+
+.sn-card {
+  display: block;
+  color: inherit;
+}
+
+.sn-card_image {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.sn-card_image img {
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.sn-card:hover .sn-card_image img {
+  transform: scale(1.04);
+}
+
+.sn-card_title {
+  margin-top: 1em;
+}
+
+.sn-card_line {
+  margin-top: 0.4em;
+}
+
+.sn-card_more {
+  margin-top: 1em;
+}
+
+.sn-card:hover .sn-card_more {
+  color: var(--wd_orange);
+}
+
+/* Who we are */
+.padding-large.sn-who {
+  padding-top: 0;
+}
+
+.sn-who_title {
+  margin-top: 0.4em;
+  font: 400 clamp(2.5rem, 4.5vw, 4.25rem) / 1 var(--font-display);
+  text-transform: uppercase;
+}
+
+/* Placeholder section */
+.padding-large.sn-group {
+  padding-top: 0;
+}
+
+.sn-group_box {
+  grid-column: 4 / span 6;
+  padding: var(--size-3);
+  border: 1px dashed rgba(0, 0, 0, 0.3);
+}
+
+.sn-group_box .sn-note {
+  margin-bottom: 0.5em;
+}
+
+/* CTA */
+.sn-cta {
+  padding: var(--size-10) 0;
+  background: var(--wd_black, #000);
+  color: var(--wd_white, #fff);
+  text-align: center;
+}
+
+.sn-cta_title {
+  margin-top: 0.6em;
+  max-width: 18em;
+}
+
+.sn-cta_btns {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  margin-top: 2em;
+}
+
+.sn-cta_link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.4em;
+}
+
+.sn-cta_link:hover {
+  color: var(--wd_orange);
+}
+
+@media (max-width: 767px) {
+  .sn-top {
+    padding-top: calc(92px + var(--size-3));
+    padding-bottom: var(--size-5);
+  }
+
+  .sn-top_head,
+  .sn-pillars,
+  .sn-split_head,
+  .sn-split_body,
+  .sn-award_image,
+  .sn-award_text,
+  .sn-group_box {
+    grid-column: 2 / -2;
+  }
+
+  .sn-pillars,
+  .sn-split_body,
+  .sn-award_text {
+    margin-top: var(--size-3);
+  }
+
+  .sn-stat {
+    padding: var(--size-5) 0;
+  }
+
+  .sn-stat_credit {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin-top: 2em;
+    padding: 0 1em;
+  }
+
+  .sn-convert_grid,
+  .sn-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .sn-figures {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sn-figure {
+    padding: 1.25em 0.75em;
+  }
+
+  .sn-figure:not(:nth-child(3n + 1)) {
+    border-left: 0;
+  }
+
+  .sn-figure:nth-child(even) {
+    border-left: 1px solid rgba(0, 0, 0, 0.15);
+  }
+
+  .sn-award_image img {
+    max-width: 180px;
+  }
+
+  .sn-cards {
+    row-gap: var(--size-3);
+  }
+
+  .sn-cta {
+    padding: var(--size-5) 0;
+  }
+
+  .sn-cta_btns {
+    flex-direction: column;
+  }
+}

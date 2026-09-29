@@ -1,0 +1,53 @@
+/*
+ * Orange site nav for the pages built on white: /about/foundation,
+ * /about/founders, /about/sustainability and the plant pages /camps/<slug>.
+ * The shared nav is white text, which disappears on a white page. Every rule
+ * is scoped with body:has(.fn-page / .fd-page / .sn-page / .pl-page), so it
+ * only applies while one of those pages is rendered; the nav everywhere else
+ * is unchanged. Colours come from globals.css (--wd_orange, --wd_white,
+ * --wd_dark-blue).
+ */
+
+/* Logo: dark blue so it reads on white. */
+body:has(:is(.fn-page, .fd-page, .sn-page, .pl-page)) nav .nav-wordmark {
+  color: var(--wd_dark-blue);
+}
+
+/* Desktop menu tabs (Products, Projects, ...) and the Specs / Enquire buttons. */
+body:has(:is(.fn-page, .fd-page, .sn-page, .pl-page)) nav .nav-layout .btn-tab,
+body:has(:is(.fn-page, .fd-page, .sn-page, .pl-page)) nav .nav-right .btn-cta {
+  color: var(--wd_orange);
+  border: 1px solid var(--wd_orange);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Open tab keeps the site's orange fill, with a matching border. */
+body:has(:is(.fn-page, .fd-page, .sn-page, .pl-page)) nav .nav-layout .btn-tab-active {
+  border: 1px solid var(--wd_orange);
+}
+
+/* Mobile bar: Menu button outlined orange; Enquire is already orange-filled. */
+body:has(:is(.fn-page, .fd-page, .sn-page, .pl-page)) nav .nav-layout_mobile .menu-toggle {
+  color: var(--wd_orange);
+  border: 1px solid var(--wd_orange);
+  border-radius: var(--radius-0125);
+}
+
+body:has(:is(.fn-page, .fd-page, .sn-page, .pl-page)) nav .nav-layout_mobile .menu-enquire {
+  border: 1px solid var(--wd_orange);
+}
+
+body:has(:is(.fn-page, .fd-page, .sn-page, .pl-page)) nav .nav-layout_mobile .menu-toggle:active {
+  background: var(--wd_orange);
+  color: var(--wd_white);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body:has(:is(.fn-page, .fd-page, .sn-page, .pl-page)) nav .nav-layout .btn-tab:hover,
+  body:has(:is(.fn-page, .fd-page, .sn-page, .pl-page)) nav .nav-right .btn-cta:hover,
+  body:has(:is(.fn-page, .fd-page, .sn-page, .pl-page)) nav .nav-layout_mobile .menu-toggle:hover {
+    background: var(--wd_orange);
+    color: var(--wd_white);
+    border: 1px solid var(--wd_orange);
+  }
+}

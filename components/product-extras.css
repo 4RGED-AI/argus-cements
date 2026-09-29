@@ -1,0 +1,135 @@
+/* Product detail extras (/itineraries/<slug>). Classes use the px- prefix. */
+
+.px {
+  position: relative;
+  padding-bottom: var(--size-10);
+}
+
+.px-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+  padding: var(--size-3) 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.px-specs {
+  margin: 0;
+}
+
+.px-specs_row {
+  display: grid;
+  grid-template-columns: 12em 1fr;
+  gap: 1.5em;
+  padding: 0.9em 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.px-specs_row:first-child {
+  padding-top: 0;
+}
+
+.px-specs_row dd {
+  margin: 0;
+}
+
+.px-specs_key {
+  padding-top: 0.2em;
+  opacity: 0.7;
+}
+
+.px-apps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75em 2em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.px-apps_item {
+  position: relative;
+  padding-left: 1.25em;
+}
+
+.px-apps_item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 0.5em;
+  height: 1px;
+  background: var(--wd_orange);
+}
+
+.px-note_body {
+  margin-top: 1em;
+  max-width: 34em;
+}
+
+.px-faq_item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.px-faq_item:first-child .px-faq_q {
+  padding-top: 0;
+}
+
+.px-faq_q {
+  position: relative;
+  padding: 0.9em 2em 0.9em 0;
+  list-style: none;
+  cursor: pointer;
+}
+
+.px-faq_q::-webkit-details-marker {
+  display: none;
+}
+
+.px-faq_q::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.px-faq_item:first-child .px-faq_q::after {
+  top: calc(50% - 0.45em);
+}
+
+.px-faq_item[open] .px-faq_q::after {
+  content: "–";
+}
+
+.px-faq_a {
+  padding-bottom: 1em;
+  opacity: 0.8;
+  max-width: 36em;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .px-faq_q:hover {
+    color: var(--wd_orange);
+  }
+}
+
+@media (max-width: 767px) {
+  .px {
+    padding-bottom: var(--size-5);
+  }
+
+  .px-block {
+    grid-template-columns: 1fr;
+    gap: 1em;
+  }
+
+  .px-specs_row {
+    grid-template-columns: 1fr;
+    gap: 0.25em;
+  }
+
+  .px-apps {
+    grid-template-columns: 1fr;
+  }
+}

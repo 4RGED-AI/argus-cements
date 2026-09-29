@@ -1,0 +1,301 @@
+/* Foundation page (/about/foundation). Classes use the fn- prefix. */
+
+.fn-note {
+  display: inline-block;
+  margin-bottom: var(--size-3);
+  padding: 0.6em 1em;
+  border: 1px dashed currentColor;
+  border-radius: 999px;
+  opacity: 0.7;
+}
+
+/* No dark band: the page starts on white under the fixed nav, which is
+   restyled orange on this page (about-nav.css). */
+.fn-top {
+  padding-top: calc(max(104px, 7.25vw) + var(--size-5));
+  padding-bottom: var(--size-5);
+}
+
+.fn-intro {
+  align-items: start;
+}
+
+.fn-intro_head {
+  grid-column: 2 / span 4;
+}
+
+.fn-intro_text {
+  grid-column: 7 / span 5;
+}
+
+.fn-title {
+  margin-top: 0.4em;
+  font: 400 clamp(2.75rem, 5.5vw, 5.25rem) / 1 var(--font-display);
+  text-transform: uppercase;
+}
+
+/* Bullet list styled after the deck's tick marks, in the site orange. */
+.fn-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fn-list li {
+  position: relative;
+  padding: 1em 0 1em 1.75em;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.fn-list li:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.fn-list li::before {
+  content: "";
+  position: absolute;
+  left: 0.25em;
+  top: 1.55em;
+  width: 0.5em;
+  height: 1px;
+  background: var(--wd_orange);
+}
+
+.fn-list_compact li {
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+}
+
+.fn-list_compact li::before {
+  top: 1.25em;
+}
+
+/* Key figures */
+.fn-facts {
+  padding-bottom: var(--size-5);
+}
+
+.fn-facts_grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.fn-fact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+  padding: 2em 1.5em;
+}
+
+.fn-fact + .fn-fact {
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.fn-fact_value {
+  font: 400 var(--size-2625) / 1 var(--font-display);
+  text-transform: uppercase;
+}
+
+.fn-fact_label {
+  max-width: 18em;
+}
+
+/* Geopolycrete */
+.padding-large.fn-geo {
+  padding-top: var(--size-5);
+}
+
+.fn-geo_layout {
+  align-items: start;
+}
+
+.fn-geo_figure {
+  grid-column: 2 / span 5;
+  margin: 0;
+}
+
+.fn-geo_image {
+  overflow: hidden;
+}
+
+.fn-geo_image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.fn-caption {
+  margin-top: 0.9em;
+}
+
+.fn-geo_text {
+  grid-column: 8 / span 4;
+}
+
+.fn-h {
+  margin-top: 0.6em;
+  margin-bottom: 0.8em;
+}
+
+.fn-body {
+  margin-top: 1em;
+}
+
+/* Waste streams */
+.padding-large.fn-waste {
+  padding-top: 0;
+}
+
+.fn-waste_title {
+  margin-top: 0.3em;
+}
+
+@media (min-width: 768px) {
+  /* Smaller than the founder story title so the longer heading stays on one line. */
+  .fn-waste .section-title-xxl {
+    font-size: calc(var(--size-20) * 0.36);
+  }
+}
+
+.fn-chips {
+  list-style: none;
+  margin: var(--size-5) auto 0;
+  padding: 0;
+  max-width: 60em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75em;
+}
+
+.fn-chip {
+  padding: 0.85em 1.4em;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 999px;
+}
+
+/* Award */
+.padding-large.fn-award {
+  padding-top: 0;
+}
+
+.fn-award_layout {
+  align-items: center;
+}
+
+.fn-award_image {
+  grid-column: 3 / span 3;
+}
+
+.fn-award_image img {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.fn-award_text {
+  grid-column: 7 / span 4;
+}
+
+/* Placeholder section */
+.padding-large.fn-group {
+  padding-top: 0;
+}
+
+.fn-group_box {
+  grid-column: 4 / span 6;
+  padding: var(--size-3);
+  border: 1px dashed rgba(0, 0, 0, 0.3);
+}
+
+.fn-group_box .fn-note {
+  margin-bottom: 0.5em;
+}
+
+/* CTA (same black band as the founder page) */
+.fn-cta {
+  padding: var(--size-10) 0;
+  background: var(--wd_black, #000);
+  color: var(--wd_white, #fff);
+  text-align: center;
+}
+
+.fn-cta_title {
+  margin-top: 0.6em;
+  max-width: 18em;
+}
+
+.fn-cta_btns {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  margin-top: 2em;
+}
+
+.fn-cta_link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.4em;
+}
+
+.fn-cta_link:hover {
+  color: var(--wd_orange);
+}
+
+@media (max-width: 767px) {
+  .fn-top {
+    padding-top: calc(92px + var(--size-3));
+    padding-bottom: var(--size-3);
+  }
+
+  .fn-intro_head,
+  .fn-intro_text,
+  .fn-geo_figure,
+  .fn-geo_text,
+  .fn-award_image,
+  .fn-award_text,
+  .fn-group_box {
+    grid-column: 2 / -2;
+  }
+
+  .fn-intro_text,
+  .fn-geo_text,
+  .fn-award_text {
+    margin-top: var(--size-3);
+  }
+
+  .fn-facts_grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .fn-fact {
+    padding: 1.25em 0.75em;
+  }
+
+  .fn-fact:nth-child(3) {
+    border-left: 0;
+  }
+
+  .fn-fact:nth-child(n + 3) {
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+  }
+
+  .fn-award_image img {
+    max-width: 220px;
+  }
+
+  .fn-cta {
+    padding: var(--size-5) 0;
+  }
+
+  .fn-cta_btns {
+    flex-direction: column;
+  }
+}

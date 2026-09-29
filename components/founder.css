@@ -1,0 +1,164 @@
+/* Founder page (/about/founders). Classes use the fd- prefix. */
+
+.fd-intro {
+  align-items: start;
+}
+
+/* The page content starts below the fixed nav (orange on this page, see
+   about-nav.css), in the same place it sat under the old dark band. */
+.fd-top {
+  padding-top: calc(max(104px, 7.25vw) + var(--size-5));
+  padding-bottom: var(--size-10);
+}
+
+/* Founder photo slot (placeholder image until the real photo is supplied). */
+.fd-portrait {
+  position: relative;
+  grid-row: 1;
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #ece9e4;
+}
+
+.fd-portrait_label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1.5em;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.fd-name {
+  margin-top: 0.4em;
+  font: 400 clamp(2.5rem, 5vw, 4.75rem) / 1 var(--font-display);
+  text-transform: uppercase;
+}
+
+.fd-role {
+  margin-top: 0.75em;
+}
+
+.fd-intro_label {
+  margin-top: var(--size-3);
+}
+
+.fd-intro_text {
+  grid-row: 1;
+}
+
+.fd-title {
+  margin-top: 0.6em;
+}
+
+.fd-body {
+  margin-top: 1.25em;
+}
+
+.fd-story {
+  padding-top: 0;
+}
+
+.fd-story_title {
+  margin-top: 0.3em;
+}
+
+@media (min-width: 768px) {
+  .fd-story .section-title-xxl {
+    font-size: calc(var(--size-20) * 0.46);
+  }
+}
+
+.fd-timeline {
+  list-style: none;
+  margin: var(--size-5) auto 0;
+  padding: 0;
+  max-width: 56em;
+}
+
+.fd-timeline_item {
+  display: grid;
+  grid-template-columns: 10em 1fr;
+  gap: 2em;
+  padding: 1.75em 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.fd-timeline_item:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.fd-timeline_year {
+  font-family: var(--font-display);
+  font-size: var(--size-2625);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.fd-timeline_body {
+  margin-top: 0.5em;
+  opacity: 0.8;
+}
+
+.fd-quote {
+  padding-top: 0;
+}
+
+.fd-cta {
+  padding: var(--size-10) 0;
+  background: var(--wd_black, #000);
+  color: var(--wd_white, #fff);
+  text-align: center;
+}
+
+.fd-cta_title {
+  margin-top: 0.6em;
+  max-width: 18em;
+}
+
+.fd-cta_btns {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  margin-top: 2em;
+}
+
+.fd-cta_link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.4em;
+}
+
+.fd-cta_link:hover {
+  color: var(--wd_orange);
+}
+
+@media (max-width: 767px) {
+  .fd-portrait,
+  .fd-intro_text {
+    grid-row: auto;
+  }
+
+  .fd-intro_text {
+    margin-top: var(--size-3);
+  }
+
+  .fd-top {
+    padding-top: calc(92px + var(--size-3));
+    padding-bottom: var(--size-5);
+  }
+
+  .fd-timeline_item {
+    grid-template-columns: 1fr;
+    gap: 0.75em;
+  }
+
+  .fd-cta {
+    padding: var(--size-5) 0;
+  }
+
+  .fd-cta_btns {
+    flex-direction: column;
+  }
+}

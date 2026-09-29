@@ -1,0 +1,380 @@
+/* Featured work: homepage panels (.fw) and the /our-work pages (.fw-page). */
+
+.fw {
+  --fw-h: 100vh;
+  --fw-h: 100svh;
+  --fw-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Caption inset from each side, as in the reference (one seventh of the screen). */
+  --fw-inset: calc(100% / 7);
+  position: relative;
+  z-index: 9;
+  background: var(--wd_white);
+}
+
+/* Heading band: separates the section above from the panels. */
+.fw-head {
+  position: relative;
+  padding-block: var(--size-10) var(--size-5);
+  background: var(--wd_white);
+  color: var(--wd_black, #000);
+}
+
+.fw-head_eyebrow {
+  text-align: center;
+  margin-bottom: var(--size-15);
+}
+
+/* Same heading style as the home "Our Plants" title, sized to keep it on one line. */
+@media (min-width: 768px) {
+  .fw-head .section-title-xxl {
+    font-size: calc(var(--size-20) * 0.46);
+  }
+}
+
+/* Clips the pinned caption to the panels. */
+.fw-stack {
+  position: relative;
+  clip-path: inset(0);
+}
+
+.fw-panel {
+  position: relative;
+  display: block;
+  height: var(--fw-h);
+  color: var(--wd_white);
+  /* Each panel shows only its own pinned image. */
+  clip-path: inset(0);
+  background: var(--wd_deep-blue);
+}
+
+/* Starts one screen above the panel so the image can stay pinned while the panel rises. */
+.fw-panel_track {
+  position: absolute;
+  top: calc(var(--fw-h) * -1);
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.fw-panel_media {
+  position: sticky;
+  top: 0;
+  height: var(--fw-h);
+  overflow: hidden;
+}
+
+.fw-panel_zoom {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+.fw-panel_zoom img {
+  object-fit: cover;
+}
+
+.fw-panel_shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.42) 100%);
+}
+
+.fw-panel:focus-visible {
+  outline: none;
+}
+
+.fw-panel:focus-visible .fw-panel_shade {
+  box-shadow: inset 0 0 0 2px var(--wd_white);
+}
+
+/* Caption, pinned bottom-left over every panel. */
+.fw-cap_track {
+  position: absolute;
+  z-index: 2;
+  top: calc(var(--fw-h) * -1);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+.fw-cap {
+  position: sticky;
+  top: 0;
+  height: var(--fw-h);
+  color: var(--wd_white);
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.18);
+}
+
+.fw-cap_grid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--fw-h) * 0.096);
+  padding-inline: var(--fw-inset);
+}
+
+.fw-cap_inner {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  row-gap: 1.3em;
+}
+
+.fw-cap_eyebrow-row {
+  display: flex;
+  align-items: center;
+  column-gap: 1.25em;
+  transition: transform 1s var(--fw-ease);
+}
+
+.fw-cap_eyebrow {
+  font: 500 var(--size-075) / 1 var(--font-sans);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.fw-cap_row {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  /* Gap between the title and the start of the line (about 0.7 of the title size). */
+  column-gap: calc(var(--size-2625) * 0.72);
+}
+
+.fw-cap_titles {
+  display: grid;
+  max-width: 68%;
+  overflow: hidden;
+  padding-bottom: 0.16em;
+  margin-bottom: -0.08em;
+}
+
+.fw-cap_title {
+  grid-area: 1 / 1;
+  align-self: end;
+  justify-self: start;
+  font: 400 var(--size-2625) / 1.08 var(--font-display);
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+  opacity: 0;
+  transform: translate3d(0, 105%, 0);
+  transition:
+    transform 1s var(--fw-ease),
+    opacity 0.6s ease;
+}
+
+.fw-cap_title.is-past {
+  transform: translate3d(0, -105%, 0);
+}
+
+.fw-cap_title.is-active {
+  opacity: 1;
+  transform: none;
+}
+
+.fw-cap_line {
+  display: block;
+  height: 1px;
+  background: currentColor;
+}
+
+.fw-cap_line.is-eyebrow {
+  position: relative;
+  display: none;
+  flex: 1;
+}
+
+/* Spans the row; scaled from the right so it always starts just after the title. */
+.fw-cap_line.is-title {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0.485em;
+  font-size: var(--size-2625);
+  transform-origin: 100% 50%;
+  transition: transform 1s var(--fw-ease);
+}
+
+/* Small end mark on the right of every line (a short upright with a taper), as in the reference. */
+.fw-tick {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 7px;
+  height: 11px;
+  margin-top: -5.5px;
+  pointer-events: none;
+  background: currentColor;
+  clip-path: polygon(5px 0, 7px 0, 7px 100%, 5px 100%, 5px 7px, 0 6px, 0 5px, 5px 4px);
+}
+
+.fw-tick.is-title {
+  top: auto;
+  bottom: calc(0.485em - 5px);
+  margin-top: 0;
+  font-size: var(--size-2625);
+}
+
+@media (max-width: 767px) {
+  .fw-head {
+    padding-block: var(--size-5) var(--size-3);
+  }
+
+  .fw {
+    --fw-inset: var(--container-pad);
+  }
+
+  .fw-cap_grid {
+    bottom: calc(var(--fw-h) * 0.08);
+  }
+
+  .fw-cap_eyebrow {
+    letter-spacing: 0.3em;
+  }
+
+  .fw-cap_line.is-eyebrow {
+    display: block;
+  }
+
+  .fw-cap_line.is-title,
+  .fw-tick.is-title {
+    display: none;
+  }
+
+  .fw-cap_titles {
+    max-width: 100%;
+  }
+
+  .fw-cap_title {
+    font-size: var(--size-175);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Simple stack: every image scrolls with its own panel, captions swap without motion. */
+  .fw-panel_track {
+    top: 0;
+  }
+
+  .fw-panel_media {
+    position: absolute;
+    inset: 0;
+    height: auto;
+  }
+
+  .fw-cap_title,
+  .fw-cap_title.is-past {
+    transform: none;
+    transition: none;
+  }
+
+  .fw-cap_eyebrow-row,
+  .fw-cap_line.is-title {
+    transition: none;
+  }
+}
+
+/* ---------- /our-work pages ---------- */
+
+.fw-page-section {
+  padding-bottom: var(--size-10);
+}
+
+.fw-block {
+  padding-top: var(--size-5);
+}
+
+.fw-block + .fw-block {
+  border-top: 1px solid var(--wd_dark-blue-faded);
+  margin-top: var(--size-5);
+}
+
+.fw-block_head {
+  grid-column: 2 / span 3;
+}
+
+.fw-block_body {
+  grid-column: 5 / span 7;
+}
+
+.fw-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: var(--gutter-x);
+  row-gap: var(--size-2);
+}
+
+.fw-stat {
+  border-top: 1px solid var(--wd_dark-blue-faded);
+  padding-top: var(--size-1);
+}
+
+.fw-stat_value {
+  font: 400 var(--size-2625) / 1 var(--font-display);
+}
+
+.fw-stat_label {
+  margin-top: 0.6em;
+}
+
+.fw-timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
+  column-gap: var(--gutter-x);
+  row-gap: var(--size-2);
+}
+
+.fw-timeline_item {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.6em;
+}
+
+.fw-media {
+  position: relative;
+  overflow: hidden;
+  background: var(--wd_light-grey);
+  border-radius: var(--radius-0125);
+}
+
+.fw-media.is-square {
+  aspect-ratio: 4 / 3;
+}
+
+.fw-media.is-wide {
+  aspect-ratio: 16 / 10;
+}
+
+.fw-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gutter-x);
+}
+
+.fw-gallery .fw-media:first-child:nth-last-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.fw-note {
+  margin-top: 1.25em;
+  opacity: 0.6;
+}
+
+@media (max-width: 767px) {
+  .fw-block_head,
+  .fw-block_body {
+    grid-column: 1 / -1;
+  }
+
+  .fw-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fw-gallery {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -1,0 +1,277 @@
+/* Plant detail pages (/camps/<slug>). Classes use the pl- prefix.
+   Same patterns as the About pages (foundation.css / sustainability.css). */
+
+.pl-note {
+  display: inline-block;
+  margin-bottom: var(--size-3);
+  padding: 0.6em 1em;
+  border: 1px dashed currentColor;
+  border-radius: 999px;
+  opacity: 0.7;
+}
+
+.pl-h {
+  margin-top: 0.6em;
+  margin-bottom: 0.8em;
+}
+
+.pl-body {
+  margin-top: 1em;
+}
+
+/* Top: starts on white under the fixed nav (orange here, see about-nav.css). */
+.pl-top {
+  padding-top: calc(max(104px, 7.25vw) + var(--size-5));
+  padding-bottom: var(--size-5);
+}
+
+.pl-top_layout {
+  align-items: end;
+}
+
+.pl-top_text {
+  grid-column: 2 / span 5;
+  padding-bottom: 0.5em;
+}
+
+.pl-title {
+  margin-top: 0.4em;
+  font: 400 clamp(2.75rem, 4.75vw, 4.75rem) / 1 var(--font-display);
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.pl-lead {
+  margin-top: 1.5em;
+  max-width: 30em;
+}
+
+.pl-coords {
+  margin-top: 1.5em;
+}
+
+.pl-top_image {
+  grid-column: 7 / span 6;
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+/* Heading left, content right */
+.pl-split {
+  align-items: start;
+}
+
+.pl-split_head {
+  grid-column: 2 / span 4;
+}
+
+.pl-split_body {
+  grid-column: 7 / span 5;
+}
+
+.padding-large.pl-points {
+  padding-top: var(--size-5);
+}
+
+.pl-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pl-list li {
+  position: relative;
+  padding: 1em 0 1em 1.75em;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.pl-list li:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.pl-list li::before {
+  content: "";
+  position: absolute;
+  left: 0.25em;
+  top: 1.55em;
+  width: 0.5em;
+  height: 1px;
+  background: var(--wd_orange);
+}
+
+/* Single photo (R&D) */
+.pl-figure {
+  padding-bottom: var(--size-10);
+}
+
+.pl-figure_inner {
+  margin: 0 auto;
+  max-width: 60%;
+}
+
+.pl-figure_inner img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pl-caption {
+  margin-top: 0.9em;
+}
+
+/* Gallery (precast) */
+.pl-gallery {
+  padding-bottom: var(--size-10);
+}
+
+.pl-gallery_grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gutter-x, 1.5em);
+}
+
+.pl-gallery_item {
+  margin: 0;
+}
+
+.pl-gallery_image {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+.pl-gallery_caption {
+  margin-top: 1em;
+}
+
+/* Chips (R&D) */
+.padding-large.pl-chips_section {
+  padding-top: 0;
+}
+
+.pl-chips {
+  list-style: none;
+  margin: var(--size-3) auto 0;
+  padding: 0;
+  max-width: 60em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75em;
+}
+
+.pl-chip {
+  padding: 0.85em 1.4em;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 999px;
+}
+
+/* Links + placeholder */
+.padding-large.pl-more {
+  padding-top: 0;
+}
+
+.pl-links {
+  list-style: none;
+  margin: 1.25em 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9em;
+}
+
+.pl-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.4em;
+}
+
+.pl-link:hover {
+  color: var(--wd_orange);
+}
+
+.pl-placeholder {
+  padding: var(--size-3);
+  border: 1px dashed rgba(0, 0, 0, 0.3);
+}
+
+.pl-placeholder .pl-note {
+  margin-bottom: 0.25em;
+}
+
+/* CTA */
+.pl-cta {
+  padding: var(--size-10) 0;
+  background: var(--wd_black, #000);
+  color: var(--wd_white, #fff);
+  text-align: center;
+}
+
+.pl-cta_title {
+  margin-top: 0.6em;
+  max-width: 18em;
+}
+
+.pl-cta_btns {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  margin-top: 2em;
+}
+
+.pl-cta_link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.4em;
+}
+
+.pl-cta_link:hover {
+  color: var(--wd_orange);
+}
+
+@media (max-width: 767px) {
+  .pl-top {
+    padding-top: calc(92px + var(--size-3));
+  }
+
+  /* Long single words (e.g. GEOPOLYCRETE) must fit a 390px screen. */
+  .pl-title {
+    font-size: 2.25rem;
+    overflow-wrap: anywhere;
+  }
+
+  .pl-top_text,
+  .pl-top_image,
+  .pl-split_head,
+  .pl-split_body {
+    grid-column: 2 / -2;
+  }
+
+  .pl-top_image,
+  .pl-split_body {
+    margin-top: var(--size-3);
+  }
+
+  .pl-figure_inner {
+    max-width: 100%;
+  }
+
+  .pl-gallery_grid {
+    grid-template-columns: 1fr;
+    row-gap: var(--size-3);
+  }
+
+  .pl-cta {
+    padding: var(--size-5) 0;
+  }
+
+  .pl-cta_btns {
+    flex-direction: column;
+  }
+}

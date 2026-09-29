@@ -109,9 +109,9 @@ export const home = {
   founderRole: "Founder & Managing Director",
   ctaImage: img("1504307651254-35680f356dfd"),
   plantsTitle: "Our Plants",
-  plantsEyebrow: "Kiln Precision",
+  plantsEyebrow: "Future Concrete",
   plantsBody:
-    "Three works, one quality book. Each plant runs its own quarry feed and dispatch, but every bag carries the same Argus stamp — grind, set, and strength you can specify without a site surprise.",
+    "Making sustainable buildings. Argus Future Concrete uses alkali activated inorganic binders, with no water, clinker or additives, for lower CO2 emissions, and utilizes and neutralizes toxic industrial waste.",
   globeFromCoords: "23º 02' 12\" N 72º 34' 11\" E",
   globeFrom: "Quarry Gate",
   globeToCoords: "22º 48' 09\" N 69º 40' 21\" E",
@@ -121,35 +121,35 @@ export const home = {
     "Stone leaves the ridge, clinker leaves the kiln, and certified loads reach your pour. Rail, road, and coastal berth — one chain, one ticket.",
   globeFromLabel: "Starting point",
   globeFromPlace: "Ridge Works Quarry",
-  globeToLabel: "Dispatch",
-  globeToPlace: "Harbor Terminal",
+  globeToLabel: "",
+  globeToPlace: "",
   watchLabel: "Watch Film",
 };
 
 export const camps = [
   {
     slug: "harbor-kiln",
-    title: "Harbor Kiln",
+    title: "Chennai",
     excerpt:
-      "Coastal works for marine grades and bulk export. Deep-water berth, two rotary kilns, and a silo farm on the tide line.",
-    coords: "[ 22º 48’ 09” N, 69º 40’ 21” E ]",
+      "Established in Chennai in 1975 by Dr RV Ramani as a manufacturer of custom built process equipment pilot research.",
+    coords: "[ Chennai · Est. 1975 ]",
     image: img("1558618666-fcd25c85cd64"),
   },
   {
     slug: "ridge-works",
-    title: "Ridge Works",
+    title: "Geopolycrete R&D",
     excerpt:
-      "Our original inland plant. High-grade limestone, tight process control, and the lab that writes the Argus quality book.",
-    coords: "[ 23º 02’ 12” N, 72º 34’ 11” E ]",
+      "Argus future concrete was born out of research into inorganic polymers, recognized by the Geopolymer institute, France.",
+    coords: "[ Location to come ]",
     image: img("1581092160562-40aa08e78837"),
   },
   {
     slug: "quarry-gate",
-    title: "Quarry Gate",
+    title: "Precast Works",
     excerpt:
-      "A compact works beside the face. Built for regional bagged cement and same-day ready-mix into the city ring.",
-    coords: "[ 23º 11’ 40” N, 72º 41’ 05” E ]",
-    image: img("1578662996442-48f60103fc96"),
+      "Placeholder: precast perimeter fencing, precast tiled walls, tetrapods and coastal armor. Plant details to come.",
+    coords: "[ Location to come ]",
+    image: "/images/plants/precast.jpg",
   },
 ];
 

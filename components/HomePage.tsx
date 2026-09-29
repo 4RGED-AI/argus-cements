@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { camps, home, outro } from "@/data/site";
 import { CardFlick } from "@/components/CardFlick";
+import { FeaturedWork } from "@/components/FeaturedWork";
 import { HeroClouds } from "@/components/HeroClouds";
 import { LiquidGlass, PlayIcon, PlusIcon } from "@/components/Icons";
 
@@ -275,6 +276,8 @@ export function HomePage() {
             </div>
           </div>
         </section>
+
+        <FeaturedWork />
       </div>
 
       {filmOpen ? (
