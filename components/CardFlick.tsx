@@ -2,12 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type PointerEvent } from "react";
 import { trips } from "@/data/site";
 import { PlusIcon } from "@/components/Icons";
+import "@/components/card-flick-scroll.css";
+
+const HEADING = "Other Products";
 
 export function CardFlick() {
   const pinRef = useRef<HTMLElement>(null);
+  const headRef = useRef<HTMLElement>(null);
+  const stickRef = useRef<HTMLDivElement>(null);
+  const lastIdx = useRef(-1);
+  const lastPointer = useRef<{ x: number; y: number } | null>(null);
   const [scrollActive, setScrollActive] = useState(0);
   const [hover, setHover] = useState<number | null>(null);
   const active = hover ?? scrollActive;
@@ -18,10 +25,19 @@ export function CardFlick() {
     const tick = () => {
       const pin = pinRef.current;
       if (pin) {
-        const total = pin.offsetHeight - window.innerHeight;
-        const p = total < 8 ? 0 : Math.min(1, Math.max(0, -pin.getBoundingClientRect().top / total));
+        // Progress runs only while the cards are pinned: after the heading
+        // has scrolled away and until the scroll track below them ends.
+        const headH = headRef.current?.offsetHeight ?? 0;
+        const stickH = stickRef.current?.offsetHeight ?? window.innerHeight;
+        const total = pin.offsetHeight - headH - stickH;
+        const p = total < 8 ? 0 : Math.min(1, Math.max(0, (-pin.getBoundingClientRect().top - headH) / total));
         const idx = Math.min(trips.length - 1, Math.floor(p * trips.length * 0.9999));
-        setScrollActive((prev) => (prev === idx ? prev : idx));
+        if (idx !== lastIdx.current) {
+          lastIdx.current = idx;
+          setScrollActive(idx);
+          // Scrolling always wins over a card the cursor happens to rest on.
+          setHover(null);
+        }
       }
       raf = requestAnimationFrame(tick);
     };
@@ -29,13 +45,29 @@ export function CardFlick() {
     return () => cancelAnimationFrame(raf);
   }, []);
 
+  // Hover preview only for a real mouse that actually moved, so a cursor
+  // resting over the cards (or a tap on a phone) cannot freeze the carousel.
+  const onPointerMove = (i: number) => (e: PointerEvent) => {
+    if (e.pointerType !== "mouse") return;
+    const last = lastPointer.current;
+    if (last && last.x === e.clientX && last.y === e.clientY) return;
+    lastPointer.current = { x: e.clientX, y: e.clientY };
+    setHover((prev) => (prev === i ? prev : i));
+  };
+  const onPointerLeave = (e: PointerEvent) => {
+    if (e.pointerType === "mouse") setHover(null);
+  };
+
   return (
     <section
       ref={pinRef}
-      className="stack-trips"
-      style={{ height: `calc(100svh * ${trips.length})` }}
+      className="stack-trips cf-flow"
+      style={{ "--flick-count": trips.length } as CSSProperties}
     >
-      <div className="stack-trips_pin">
+      <header ref={headRef} className="cf-head" data-nav-theme="dark">
+        <h2 className="section-title-xxl cf-head_title">{HEADING}</h2>
+      </header>
+      <div ref={stickRef} className="stack-trips_pin">
         <div className="card-flick">
           <div className="card-flick_grid">
             {trips.map((trip, i) => {
@@ -46,8 +78,8 @@ export function CardFlick() {
                   className={`card-flick_item${on ? " is-active" : ""}`}
                   href={`/itineraries/${trip.slug}`}
                   data-cursor-text="Learn More"
-                  onMouseEnter={() => setHover(i)}
-                  onMouseLeave={() => setHover(null)}
+                  onPointerMove={onPointerMove(i)}
+                  onPointerLeave={onPointerLeave}
                   onFocus={() => setHover(i)}
                   onBlur={() => setHover(null)}
                   style={{ width: on ? "50%" : rest }}
@@ -92,6 +124,7 @@ export function CardFlick() {
           </div>
         </div>
       </div>
+      <div className="cf-track" aria-hidden="true" />
     </section>
   );
 }

@@ -1,0 +1,195 @@
+/* "Companies run/invested in" marquee on the home globe banner. Prefix cm-. */
+
+/* Same box as the globe photo (3:2), pinned to the top of .travel-globe_inner.
+   On mobile the location labels flow below the photo, so an aspect-ratio box
+   keeps the band on the photo instead of using the inner's full height. */
+.cm-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* The marked area: ~2% to ~99% wide, ~78% to ~98% high. */
+.cm-band {
+  position: absolute;
+  top: 78%;
+  bottom: 2%;
+  left: 2%;
+  right: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.9em;
+  min-width: 0;
+  /* The heading pill above the row was removed. This keeps the space it
+     took (pill 1.25em x (1.2 line + 0.65 padding) = 2.3125em, plus the
+     0.9em gap), so the logo row stays exactly where it was. */
+  padding-top: calc(2.3125em + 0.9em);
+  pointer-events: auto;
+}
+
+.cm-heading {
+  align-self: flex-start;
+  margin: 0;
+  margin-left: var(--size-1, 1rem);
+  padding: 0.3em 0.8em 0.35em;
+  border-radius: 999px;
+  background: rgba(8, 12, 22, 0.55);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: var(--wd_white);
+  /* Site's small italic title (.t-title-italic, as on footer column titles). */
+  font-size: var(--size-125);
+}
+
+.cm-heading::before {
+  content: "";
+  display: inline-block;
+  width: 0.4em;
+  height: 0.4em;
+  margin-right: 0.55em;
+  border-radius: 50%;
+  background: var(--wd_orange);
+  vertical-align: 0.12em;
+}
+
+.cm-viewport {
+  overflow: hidden;
+  min-width: 0;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+}
+
+.cm-track {
+  --cm-gap: clamp(1.5rem, 3.2vw, 3rem);
+  display: flex;
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: cm-scroll var(--cm-duration, 40s) linear infinite;
+  will-change: transform;
+}
+
+.cm-item {
+  flex: none;
+  padding-right: var(--cm-gap);
+}
+
+.cm-chip {
+  display: inline-flex;
+  align-items: center;
+  height: clamp(2.75rem, 3.9vw, 3.75rem);
+  padding: 0 clamp(1.1rem, 1.8vw, 1.75rem);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 14px;
+  background: rgba(8, 12, 22, 0.42);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: var(--wd_white);
+  /* Site's button / tag label type (.btn-text, card tags): Inter Tight 500. */
+  font-family: var(--font-sans);
+  font-size: var(--size-1);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1;
+  white-space: nowrap;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Logo chips keep the glass chip above (dark translucent, blur, thin white
+   outline, white text). The logos use light versions made for dark
+   backgrounds: *-light.png in public/images/companies/. */
+.cm-chip {
+  gap: 0.6em;
+}
+
+.cm-track {
+  --cm-logo-h: clamp(1.1rem, 1.65vw, 1.55rem);
+}
+
+.cm-logo {
+  display: block;
+  flex: none;
+  width: auto;
+  height: var(--cm-logo-h);
+  user-select: none;
+}
+
+/* A square mark reads smaller than a wordmark of the same height. */
+.cm-chip.has-name .cm-logo {
+  height: calc(var(--cm-logo-h) * 1.35);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cm-viewport:hover .cm-track {
+    animation-play-state: paused;
+  }
+
+  .cm-chip:hover {
+    border-color: var(--wd_orange);
+    background: rgba(8, 12, 22, 0.6);
+  }
+}
+
+@keyframes cm-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 767px) {
+  /* The photo is short on phones; give the band a little more height. */
+  .cm-band {
+    top: 66%;
+    bottom: 3%;
+    left: 0;
+    right: 0;
+    gap: 0.4em;
+    padding-top: calc(2.3125em + 0.4em);
+  }
+
+  .cm-heading {
+    margin-left: 1rem;
+    font-size: var(--size-125);
+  }
+
+  .cm-chip {
+    height: 2.1rem;
+    padding: 0 0.85rem;
+    border-radius: 12px;
+    font-size: var(--size-0875);
+  }
+
+  .cm-track {
+    --cm-gap: 1.2rem;
+    --cm-logo-h: 0.95rem;
+  }
+}
+
+/* Reduced motion: a static row showing the list once. */
+@media (prefers-reduced-motion: reduce) {
+  .cm-track {
+    animation: none;
+    transform: none;
+    padding-left: var(--size-1, 1rem);
+  }
+
+  .cm-item[aria-hidden="true"] {
+    display: none;
+  }
+}
+
+/* Home globe location labels: both are emptied in data/site.ts. On mobile the
+   label boxes flow below the photo with 1rem padding, so an empty one would
+   leave a dark gap. Hide a label box only when every line in it is empty. */
+.travel-globe_inner .map-location_item:not(:has(> :not(:empty))) {
+  display: none;
+}

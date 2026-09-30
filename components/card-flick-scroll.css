@@ -1,0 +1,40 @@
+/*
+ * Home "Your Other Products" section (CardFlick, section.stack-trips.cf-flow).
+ * Scroll layout: heading band, then the pinned cards, then an empty track
+ * whose height is the scroll distance that flips through the cards
+ * (40svh per card instead of a full screen each). Classes use cf-.
+ */
+.stack-trips.cf-flow {
+  height: auto;
+}
+
+.cf-track {
+  height: calc(var(--flick-count, 6) * 40svh);
+}
+
+/* Heading band: the site's section-title-xxl treatment (Oswald 400,
+   uppercase) in the site text colour, dark navy (--text = --wd_dark-blue),
+   as on the "Our Plants" heading. */
+.cf-head {
+  position: relative;
+  padding-block: var(--size-5) var(--size-3);
+  background: var(--wd_white);
+  color: var(--wd_dark-blue);
+}
+
+/* Sized so the longer title clears the fixed "How it works" tab. */
+@media (min-width: 768px) {
+  .cf-head .section-title-xxl {
+    font-size: calc(var(--size-20) * 0.44);
+  }
+}
+
+@media (max-width: 767px) {
+  .cf-head {
+    padding-block: var(--size-3) var(--size-2);
+  }
+
+  .cf-head .section-title-xxl {
+    font-size: min(var(--size-5), 16vw);
+  }
+}

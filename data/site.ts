@@ -14,63 +14,63 @@ export type Trip = {
 export const trips: Trip[] = [
   {
     slug: "portland-cement",
-    title: "Portland Cement",
+    title: "Sea Walls & Revetments",
     season: "General Works",
     price: "OPC 43 / 53",
     excerpt:
-      "Our flagship ordinary Portland cement for foundations, slabs, and structural frames. Consistent grind, reliable set, day after day.",
-    image: img("1541888946425-d81bb19240f5"),
-    tags: ["OPC 43 / 53", "General Works"],
+      "Revetments, bulkheads, groins and sea walls in Geopolycrete, to slow down coastal erosion. No clinker, no cement, made from industrial waste.",
+    image: "/images/products/sea-walls.jpg",
+    tags: ["Bulkheads", "Coastal Erosion"],
   },
   {
     slug: "rapid-hardening",
-    title: "Rapid Hardening",
+    title: "Tetrapods & Dolos",
     season: "Fast Track",
     price: "RHC Grade",
     excerpt:
-      "High early strength for tight programmes — roads, precast yards, and repairs that cannot wait on a seven-day cure.",
-    image: img("1503387762-592deb58ef4e"),
-    tags: ["RHC Grade", "Fast Track"],
+      "Tetrapods and dolos for coastal protection, precast in Argus Future Concrete. Unyielding armor units with higher strength and lower CO2.",
+    image: "/images/products/tetrapods-dolos.jpg",
+    tags: ["Coastal Armor", "Breakwaters"],
   },
   {
     slug: "sulphate-resistant",
-    title: "Sulphate Resistant",
+    title: "Ports & Harbours",
     season: "Marine & Soil",
     price: "SRC Grade",
     excerpt:
-      "Specified for coastal piles, treatment plants, and aggressive soils. Built to hold in wet, chemical-heavy ground.",
-    image: img("1517581177682-a085bb7ffb15"),
-    tags: ["SRC Grade", "Marine & Soil"],
+      "Ports, harbours, marinas and jetties in Geopolycrete, for increased access or mooring sites. Rapid to build, strong and lasting.",
+    image: "/images/products/ports-harbours.jpg",
+    tags: ["Marinas", "Jetties"],
   },
   {
     slug: "blended-ppc",
-    title: "Blended PPC",
+    title: "Bridges & Causeways",
     season: "Low Heat",
     price: "PPC Grade",
     excerpt:
-      "Pozzolana-blended cement for mass pours and everyday masonry. Cooler hydration, finer finish, lower clinker load.",
-    image: img("1486406146926-c627a92ad1ab"),
-    tags: ["PPC Grade", "Low Heat"],
+      "Bridges, causeways and boat ramps in Argus Future Concrete. Faster setting and lower construction time, with no water, clinker or additives.",
+    image: "/images/products/bridges-causeways.jpg",
+    tags: ["Boat Ramps", "Causeways"],
   },
   {
     slug: "white-cement",
-    title: "White Cement",
+    title: "Power Poles & Pipes",
     season: "Architectural",
     price: "White OPC",
     excerpt:
-      "Bright, pigment-ready white cement for façades, terrazzo, and decorative precast where colour and edge matter.",
-    image: img("1497366216548-37526070297c"),
-    tags: ["White OPC", "Architectural"],
+      "Power poles and storm water pipes precast in Geopolycrete. Green (<20% CO2 & water), made with waste streams such as fly ash and slag.",
+    image: "/images/products/poles-pipes.jpg",
+    tags: ["Power Poles", "Storm Water Pipes"],
   },
   {
     slug: "ready-mix",
-    title: "Ready-Mix",
+    title: "Shoreline Protection",
     season: "Batch Plant",
     price: "M20–M60",
     excerpt:
-      "Site-ready concrete from our batch plants. Designed mixes, timed trucks, and slump you can sign off on arrival.",
-    image: img("1581094794329-c8112a89af12"),
-    tags: ["M20–M60", "Batch Plant"],
+      "Dykes, levees and floating structures to support coastal divisions. Sustainable Geopolycrete that turns industrial waste to wealth.",
+    image: "/images/products/shoreline.jpg",
+    tags: ["Dykes & Levees", "Floating Structures"],
   },
 ];
 
@@ -91,6 +91,8 @@ export const home = {
   video: "/videos/hero.mp4",
   heroImage: img("1503387762-592deb58ef4e"),
   watchImage: img("1503387762-592deb58ef4e"),
+  /** Home hero "Watch Film" card preview: portrait composition of the film's title frame (8s). */
+  watchCardImage: "/videos/argus-film-thumb.jpg",
   tagline: "Kiln-fired cement for the jobs that have to stand",
   title: "Argus",
   introEyebrow: "The Quiet Strength",
@@ -119,11 +121,19 @@ export const home = {
   globeTitle: "From Face to Frame",
   globeBody:
     "Stone leaves the ridge, clinker leaves the kiln, and certified loads reach your pour. Rail, road, and coastal berth — one chain, one ticket.",
-  globeFromLabel: "Starting point",
-  globeFromPlace: "Ridge Works Quarry",
+  globeFromLabel: "",
+  globeFromPlace: "",
   globeToLabel: "",
   globeToPlace: "",
   watchLabel: "Watch Film",
+  /** Film played by the hero "Watch Film" button (components/HeroFilmPlayer.tsx). */
+  film: {
+    src: "/videos/argus-film.mp4",
+    poster: "/videos/argus-film-poster.jpg",
+    width: 1920,
+    height: 1080,
+    title: "Argus film: use of Geopolycrete in decarbonisation",
+  },
 };
 
 export const camps = [

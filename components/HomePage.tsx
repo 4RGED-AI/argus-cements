@@ -5,8 +5,10 @@ import Link from "next/link";
 import { useState } from "react";
 import { camps, home, outro } from "@/data/site";
 import { CardFlick } from "@/components/CardFlick";
+import { CompaniesMarquee } from "@/components/CompaniesMarquee";
 import { FeaturedWork } from "@/components/FeaturedWork";
 import { HeroClouds } from "@/components/HeroClouds";
+import { HeroFilmPlayer } from "@/components/HeroFilmPlayer";
 import { LiquidGlass, PlayIcon, PlusIcon } from "@/components/Icons";
 
 export function HomePage() {
@@ -50,7 +52,7 @@ export function HomePage() {
                     <button className="btn btn-image-hover" type="button" onClick={() => setFilmOpen(true)}>
                       <div className="btn-preview-image">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={home.watchImage} alt="Video preview" />
+                        <img src={home.watchCardImage} alt="Video preview" />
                       </div>
                       <div className="btn-content-wrapper">
                         <span className="btn-text">{home.watchLabel}</span>
@@ -243,6 +245,7 @@ export function HomePage() {
                   <p className="t-title-italic">{home.globeToLabel}</p>
                   <p className="layout-title_md">{home.globeToPlace}</p>
                 </div>
+                <CompaniesMarquee />
               </div>
             </div>
           </div>
@@ -280,16 +283,7 @@ export function HomePage() {
         <FeaturedWork />
       </div>
 
-      {filmOpen ? (
-        <div className="film-modal" onClick={() => setFilmOpen(false)} role="dialog">
-          <button className="film-modal_close" type="button" onClick={() => setFilmOpen(false)}>
-            Close
-          </button>
-          <video className="film-modal_video" controls autoPlay playsInline>
-            <source src={home.video} type="video/mp4" />
-          </video>
-        </div>
-      ) : null}
+      <HeroFilmPlayer open={filmOpen} onClose={() => setFilmOpen(false)} />
     </main>
   );
 }

@@ -1,0 +1,417 @@
+/* Enquire page (/enquire). Classes use the eq- prefix. */
+
+/* ---- Orange nav while this page is shown (same treatment as the white
+   about/plant pages in about-nav.css, under its own .eq-page scope). ---- */
+body:has(.eq-page) nav .nav-wordmark {
+  color: var(--wd_dark-blue);
+}
+
+body:has(.eq-page) nav .nav-layout .btn-tab,
+body:has(.eq-page) nav .nav-right .btn-cta {
+  color: var(--wd_orange);
+  border: 1px solid var(--wd_orange);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+body:has(.eq-page) nav .nav-layout .btn-tab-active {
+  border: 1px solid var(--wd_orange);
+}
+
+body:has(.eq-page) nav .nav-layout_mobile .menu-toggle {
+  color: var(--wd_orange);
+  border: 1px solid var(--wd_orange);
+  border-radius: var(--radius-0125);
+}
+
+body:has(.eq-page) nav .nav-layout_mobile .menu-enquire {
+  border: 1px solid var(--wd_orange);
+}
+
+body:has(.eq-page) nav .nav-layout_mobile .menu-toggle:active {
+  background: var(--wd_orange);
+  color: var(--wd_white);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body:has(.eq-page) nav .nav-layout .btn-tab:hover,
+  body:has(.eq-page) nav .nav-right .btn-cta:hover,
+  body:has(.eq-page) nav .nav-layout_mobile .menu-toggle:hover {
+    background: var(--wd_orange);
+    color: var(--wd_white);
+    border: 1px solid var(--wd_orange);
+  }
+}
+
+/* ---- Intro ---- */
+.eq-top {
+  padding-top: calc(max(104px, 7.25vw) + var(--size-5));
+  padding-bottom: var(--size-3);
+}
+
+.eq-intro {
+  align-items: end;
+}
+
+.eq-intro_head {
+  grid-column: 2 / span 5;
+}
+
+.eq-intro_text {
+  grid-column: 8 / span 4;
+}
+
+.eq-title {
+  margin-top: 0.4em;
+  font: 400 clamp(2.75rem, 5.5vw, 5.25rem) / 1 var(--font-display);
+  text-transform: uppercase;
+}
+
+.eq-body {
+  max-width: 34em;
+}
+
+.eq-body + .eq-body {
+  margin-top: 1em;
+}
+
+.eq-h {
+  margin-top: 0.5em;
+}
+
+/* ---- Image ---- */
+.eq-image {
+  grid-column: 2 / -2;
+  aspect-ratio: 21 / 9;
+  overflow: hidden;
+  border-radius: var(--radius-0125);
+  background: var(--wd_light-grey);
+}
+
+.eq-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- Form + contact ---- */
+.padding-large.eq-main {
+  padding-top: var(--size-5);
+}
+
+.eq-layout {
+  align-items: start;
+}
+
+.eq-form_col {
+  grid-column: 2 / span 6;
+}
+
+.eq-aside {
+  grid-column: 9 / span 3;
+}
+
+.eq-form {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.eq-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5em;
+}
+
+.eq-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.eq-label {
+  padding: 0;
+  color: var(--wd_dark-blue);
+}
+
+.eq-req {
+  color: var(--wd_orange);
+}
+
+.eq-opt {
+  opacity: 0.5;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.eq-input {
+  width: 100%;
+  padding: 0.85em 1em;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: var(--radius-0125);
+  background: var(--wd_white);
+  color: var(--wd_dark-blue);
+  font-size: max(16px, var(--size-0875));
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.eq-textarea {
+  resize: vertical;
+  min-height: 9em;
+}
+
+.eq-input:hover {
+  border-color: rgba(0, 0, 0, 0.35);
+}
+
+.eq-input:focus {
+  outline: none;
+  border-color: var(--wd_orange);
+  box-shadow: 0 0 0 3px rgba(255, 126, 21, 0.18);
+}
+
+.eq-field.is-error .eq-input {
+  border-color: var(--wd_red);
+}
+
+.eq-error {
+  color: var(--wd_red);
+}
+
+/* Enquiry type chips (radio buttons) */
+.eq-types legend {
+  margin-bottom: 0.6em;
+}
+
+.eq-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6em;
+}
+
+.eq-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6em 1.2em;
+  border: 1px solid var(--wd_orange);
+  border-radius: 999px;
+  color: var(--wd_orange);
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.eq-chip input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.eq-chip.is-on {
+  background: var(--wd_orange);
+  color: var(--wd_white);
+}
+
+.eq-chip:has(input:focus-visible) {
+  box-shadow: 0 0 0 3px rgba(255, 126, 21, 0.3);
+}
+
+.eq-types.is-error .eq-chip {
+  border-color: var(--wd_red);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .eq-chip:hover {
+    background: var(--wd_orange);
+    color: var(--wd_white);
+  }
+}
+
+.eq-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  margin-top: 0.5em;
+}
+
+.btn.btn-large.eq-submit {
+  width: auto;
+  min-width: 16em;
+  background-color: var(--wd_orange);
+  color: var(--wd_white);
+  border: 1px solid var(--wd_orange);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn.btn-large.eq-submit:hover {
+    background-color: var(--wd_dark-blue);
+    border-color: var(--wd_dark-blue);
+    color: var(--wd_white);
+  }
+}
+
+.eq-note {
+  max-width: 18em;
+}
+
+/* Thank-you state */
+.eq-thanks {
+  margin-top: 2em;
+  padding: 2.5em;
+  border: 1px solid var(--wd_orange);
+  border-radius: var(--radius-0125);
+  outline: none;
+}
+
+.eq-thanks_mark {
+  display: block;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  background: var(--wd_orange);
+  position: relative;
+}
+
+.eq-thanks_mark::after {
+  content: "";
+  position: absolute;
+  left: 0.9em;
+  top: 0.6em;
+  width: 0.6em;
+  height: 1.1em;
+  border: solid var(--wd_white);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.eq-thanks .eq-h {
+  margin-top: 0.8em;
+}
+
+.eq-thanks .eq-body {
+  margin-top: 1em;
+}
+
+.eq-link {
+  margin-top: 2em;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--wd_dark-blue);
+  text-decoration: underline;
+  text-underline-offset: 0.4em;
+  cursor: pointer;
+}
+
+.eq-link:hover {
+  color: var(--wd_orange);
+}
+
+/* Contact details */
+.eq-aside_title {
+  font-size: var(--size-1625, 1.625em);
+}
+
+.eq-details {
+  margin: 2em 0 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.eq-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  padding: 1em 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.eq-detail dd {
+  margin: 0;
+}
+
+.eq-topics_label {
+  margin-top: 2.5em;
+}
+
+.eq-topics {
+  list-style: none;
+  margin: 1em 0 0;
+  padding: 0;
+}
+
+.eq-topics li {
+  position: relative;
+  padding: 0.35em 0 0.35em 1.5em;
+}
+
+.eq-topics li::before {
+  content: "";
+  position: absolute;
+  left: 0.2em;
+  top: 1.1em;
+  width: 0.5em;
+  height: 1px;
+  background: var(--wd_orange);
+}
+
+@media (max-width: 767px) {
+  .eq-top {
+    padding-top: calc(92px + var(--size-3));
+    padding-bottom: var(--size-3);
+  }
+
+  .eq-intro_head,
+  .eq-intro_text,
+  .eq-image,
+  .eq-form_col,
+  .eq-aside {
+    grid-column: 2 / -2;
+  }
+
+  .eq-intro_text {
+    margin-top: 1.5em;
+  }
+
+  /* "Geopolycrete" is one long word: size it to fit a phone column. */
+  .eq-title {
+    font-size: min(2.75rem, 9vw);
+    overflow-wrap: break-word;
+  }
+
+  .eq-image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .eq-row {
+    grid-template-columns: 1fr;
+  }
+
+  .eq-aside {
+    margin-top: var(--size-3);
+  }
+
+  .eq-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn.btn-large.eq-submit {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .eq-note {
+    max-width: none;
+  }
+
+  .eq-thanks {
+    padding: 1.75em;
+  }
+}
