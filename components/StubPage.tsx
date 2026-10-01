@@ -9,7 +9,7 @@ export default function StubPage({
     <main className="page-main">
       <section className="subpage" data-nav-theme="dark">
         <h1>{title}</h1>
-        <p className="t-body">{body}</p>
+        {body && <p className="t-body">{body}</p>}
       </section>
     </main>
   );

@@ -14,6 +14,10 @@ export type ProductExtra = {
   applications: string[];
   note: { title: string; body: string };
   faq: { q: string; a: string }[];
+  /** V74: closing photo above the footer (public/images/product-end-*.jpg, 1600x900). */
+  endImage?: { src: string; alt: string };
+  /** V79: second closing photo, shown beside the first (stacked on phones). */
+  endImage2?: { src: string; alt: string };
 };
 
 export const productExtrasLabels = {
@@ -25,9 +29,11 @@ export const productExtrasLabels = {
 
 export const productExtras: Record<string, ProductExtra> = {
   "portland-cement": {
+    endImage: { src: "/images/product-end-sea-walls.jpg", alt: "Storm waves breaking against a sea wall" }, // Pexels 31448720
+    endImage2: { src: "/images/product-end-portland-cement-2.jpg", alt: "A wave breaking over a curved sea wall" }, // Pexels 10744600
     specs: [
       { label: "Grades", value: "OPC 43 and OPC 53" },
-      { label: "Standard", value: "IS 269 (placeholder)" },
+      { label: "Standard", value: "IS 269" },
       { label: "28-day strength", value: "43 / 53 MPa minimum" },
       { label: "Pack sizes", value: "50 kg bags, bulk tanker" },
     ],
@@ -43,9 +49,11 @@ export const productExtras: Record<string, ProductExtra> = {
     ],
   },
   "rapid-hardening": {
+    endImage: { src: "/images/product-end-tetrapods.jpg", alt: "Concrete tetrapods protecting a coastline, seen from above" }, // Pexels 13001855
+    endImage2: { src: "/images/product-end-rapid-hardening-2.jpg", alt: "Concrete tetrapods along a harbour breakwater with a lighthouse" }, // Unsplash photo-1777018711852-2e53a39a5279
     specs: [
       { label: "Type", value: "Rapid hardening cement (RHC)" },
-      { label: "Standard", value: "IS 8041 (placeholder)" },
+      { label: "Standard", value: "IS 8041" },
       { label: "3-day strength", value: "Close to OPC 7-day strength" },
       { label: "Pack sizes", value: "50 kg bags" },
     ],
@@ -61,9 +69,11 @@ export const productExtras: Record<string, ProductExtra> = {
     ],
   },
   "sulphate-resistant": {
+    endImage: { src: "/images/product-end-ports.jpg", alt: "Quay cranes lining a container port" }, // Pexels 31382902
+    endImage2: { src: "/images/product-end-sulphate-resistant-2.jpg", alt: "Container terminal with quay cranes and a ship at berth" }, // Pexels 36652836
     specs: [
       { label: "Type", value: "Sulphate resisting cement (SRC)" },
-      { label: "Standard", value: "IS 12330 (placeholder)" },
+      { label: "Standard", value: "IS 12330" },
       { label: "C3A content", value: "Low, below 5%" },
       { label: "Pack sizes", value: "50 kg bags, bulk tanker" },
     ],
@@ -79,9 +89,11 @@ export const productExtras: Record<string, ProductExtra> = {
     ],
   },
   "blended-ppc": {
+    endImage: { src: "/images/product-end-bridges.jpg", alt: "Long sea bridge on concrete piers" }, // Pexels 29141937
+    endImage2: { src: "/images/product-end-blended-ppc-2.jpg", alt: "Long bridge crossing open water at dusk" }, // Pexels 29141941
     specs: [
       { label: "Type", value: "Portland pozzolana cement (PPC)" },
-      { label: "Standard", value: "IS 1489 (placeholder)" },
+      { label: "Standard", value: "IS 1489" },
       { label: "Fly ash content", value: "15 to 35%" },
       { label: "Pack sizes", value: "50 kg bags" },
     ],
@@ -97,10 +109,12 @@ export const productExtras: Record<string, ProductExtra> = {
     ],
   },
   "white-cement": {
+    endImage: { src: "/images/product-end-white-cement-v2.jpg", alt: "Stacked precast concrete pipes in a storage yard" }, // Pexels 17375718 (V76: replaced wooden power poles)
+    endImage2: { src: "/images/product-end-white-cement-2.jpg", alt: "Large precast concrete pipes laid out on site" }, // Pexels 12387207
     specs: [
       { label: "Type", value: "White Portland cement" },
-      { label: "Whiteness", value: "High reflectance (placeholder)" },
-      { label: "Standard", value: "IS 8042 (placeholder)" },
+      { label: "Whiteness", value: "High reflectance" },
+      { label: "Standard", value: "IS 8042" },
       { label: "Pack sizes", value: "5 kg, 25 kg and 50 kg bags" },
     ],
     applications: ["Architectural and exposed concrete", "Terrazzo and tiles", "Decorative plasters and putty", "Coloured concrete with pigments"],
@@ -115,9 +129,11 @@ export const productExtras: Record<string, ProductExtra> = {
     ],
   },
   "ready-mix": {
+    endImage: { src: "/images/product-end-shoreline.jpg", alt: "Rock breakwater stretching out to sea, seen from above" }, // Pexels 6921926
+    endImage2: { src: "/images/product-end-ready-mix-2.jpg", alt: "Waves breaking on concrete armour units along the shore" }, // Pexels 9751592
     specs: [
       { label: "Grades", value: "M20 to M60" },
-      { label: "Standard", value: "IS 4926 (placeholder)" },
+      { label: "Standard", value: "IS 4926" },
       { label: "Delivery", value: "Transit mixers from our batch plants" },
       { label: "Testing", value: "Cube tests for every batch" },
     ],

@@ -51,3 +51,59 @@ body:has(:is(.fn-page, .fd-page, .sn-page, .pl-page)) nav .nav-layout_mobile .me
     border: 1px solid var(--wd_orange);
   }
 }
+
+/*
+ * V67: the black "Work with us" band was removed from the founders,
+ * foundation and sustainability pages, so the last section now sits on the
+ * footer. Use one standard section gap above the footer: 140px desktop, 80px
+ * phones (was the 320px / 160px padding-large bottom). Same for the
+ * Operations listing (/antarctica).
+ */
+main:is(.fn-page, .fd-page, .sn-page) > section.padding-large:last-child,
+main.pl-page > section.padding-large.camps-preview:last-child {
+  padding-bottom: var(--size-875);
+}
+
+@media (max-width: 767px) {
+  main:is(.fn-page, .fd-page, .sn-page) > section.padding-large:last-child,
+  main.pl-page > section.padding-large.camps-preview:last-child {
+    padding-bottom: var(--size-5);
+  }
+}
+
+/*
+ * V72: standard section rhythm on the Foundation page only (/about/foundation):
+ * 140px between sections on desktop (--size-875), 80px on phones (--size-5).
+ * This also closes the gap left where the V68 placeholder box was removed.
+ */
+main.fn-page.fn-page > section:not(:first-child) {
+  padding-top: 0;
+}
+
+main.fn-page.fn-page > section {
+  padding-bottom: var(--size-875);
+}
+
+@media screen and (max-width: 767px) {
+  main.fn-page.fn-page > section {
+    padding-bottom: var(--size-5);
+  }
+}
+
+/*
+ * V77: standard section rhythm on the Founders page only (/about/founders):
+ * 140px between sections on desktop (--size-875), 80px on phones (--size-5).
+ */
+main.fd-page.fd-page > section:not(:first-child) {
+  padding-top: 0;
+}
+
+main.fd-page.fd-page > section {
+  padding-bottom: var(--size-875);
+}
+
+@media screen and (max-width: 767px) {
+  main.fd-page.fd-page > section {
+    padding-bottom: var(--size-5);
+  }
+}

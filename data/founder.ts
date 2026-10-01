@@ -17,7 +17,7 @@
 export const founder = {
   portrait: {
     src: "/images/founder/founder.jpg",
-    alt: "Placeholder for a photo of Dr R V Ramani",
+    alt: "Photo of Dr R V Ramani",
     isPlaceholder: true,
     placeholderLabel: "Founder photo to come",
   },
@@ -46,7 +46,7 @@ export const founder = {
   quote: {
     text: "Concrete should outlast the people who pour it. Our job is to make it stronger, cleaner and better for the places we build.",
     name: "Dr R V Ramani",
-    role: "Founder, Argus group (placeholder quote)",
+    role: "Founder, Argus group",
   },
   cta: {
     label: "Work with us",

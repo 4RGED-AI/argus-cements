@@ -5,6 +5,7 @@ import { camps } from "@/data/site";
 import { plantDetails, plantsCopy } from "@/data/plants";
 import "@/components/plant.css";
 import "@/components/about-nav.css";
+import "@/components/plant-page-tweaks.css";
 
 /**
  * Plant detail page (/camps/<slug>), shared by the three static routes in
@@ -16,7 +17,6 @@ export function PlantPage({ slug }: { slug: string }) {
   const detail = plantDetails[slug];
   if (!camp || !detail) notFound();
   const { points, figure, gallery, chips, links, placeholder } = detail;
-  const { cta } = plantsCopy;
 
   return (
     <main className="page-main pl pl-page">
@@ -115,31 +115,16 @@ export function PlantPage({ slug }: { slug: string }) {
                 ))}
               </ul>
             </div>
-            <div className="pl-split_body pl-placeholder">
-              <p className="pl-note layout-title_sm">Placeholder</p>
-              {placeholder.map((text) => (
-                <p key={text} className="t-body pl-body">
-                  {text}
-                </p>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="pl-cta">
-        <div className="container-large v-flex_center">
-          <p className="layout-title">{cta.label}</p>
-          <h2 className="h3 pl-cta_title">{cta.title}</h2>
-          <div className="pl-cta_btns">
-            <Link className="btn btn-large hover-orange" href={cta.primary.href}>
-              <span className="btn-inner">
-                <span className="btn-text">{cta.primary.label}</span>
-              </span>
-            </Link>
-            <Link className="pl-cta_link layout-title_sm" href={cta.secondary.href}>
-              {cta.secondary.label}
-            </Link>
+            {/* V68: dashed placeholder box removed entirely per Neel
+            {placeholder.length > 0 && (
+              <div className="pl-split_body pl-placeholder">
+                {placeholder.map((text) => (
+                  <p key={text} className="t-body pl-body">
+                    {text}
+                  </p>
+                ))}
+              </div>
+            )} */}
           </div>
         </div>
       </section>

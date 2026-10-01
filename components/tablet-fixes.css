@@ -1,0 +1,18 @@
+/*
+ * Tablet fixes (768-1023px). Imported once in app/layout.tsx.
+ *
+ * The site switches to its phone layout at max-width 767px, but globals.css
+ * also sets `body { font-size: 16px }` at max-width 768px. So at exactly
+ * 768px (iPad portrait) the desktop layout is shown with the base font
+ * doubled (16px instead of the 1.11111vw = 8.53px it is at 769px+), and
+ * every em-sized element (nav buttons, the Our Plants card titles, footer
+ * columns, hero title...) is twice too big and overlaps its neighbours.
+ * This keeps the desktop scale at 768px too. From 769px to 1023px the value
+ * is the same as globals.css already gives, so nothing changes there; phones
+ * (max 767px) and desktop (1024px+) are untouched.
+ */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  body {
+    font-size: 1.11111vw;
+  }
+}

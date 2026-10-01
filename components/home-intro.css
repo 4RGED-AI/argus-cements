@@ -1,0 +1,47 @@
+/*
+ * V65: home section 2 (photo + "Making Sustainable Buildings").
+ * The five deck points used to be one huge uppercase h3 with a 4-column
+ * first-line indent, which ran far below the photo. Now: the first point
+ * ("Award winning.") is a short h3 with no indent, and the other four points
+ * are a clean left-aligned list in the site body style with thin dividers.
+ */
+.home-intro-split .home-intro_title {
+  text-indent: 0;
+  margin: 0;
+}
+
+.home-intro-split .home-intro_points {
+  list-style: none;
+  margin: var(--size-125) 0 0;
+  padding: 0;
+  max-width: 28em;
+  border-top: 1px solid var(--wd_dark-blue-faded);
+}
+
+.home-intro-split .home-intro_points li {
+  margin: 0;
+  padding: var(--size-075) 0;
+  border-bottom: 1px solid var(--wd_dark-blue-faded);
+  color: var(--wd_dark-blue);
+}
+
+/* The text section is a shrink-to-fit grid item; the old long heading
+   happened to stretch it. Keep it at the full column width. */
+.home-intro-split > section {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  /* Stacked under the photo: the text may run to the right edge. */
+  .home-intro-split .home-intro_col {
+    grid-column: 2 / -1;
+  }
+
+  .home-intro-split .home-intro_points {
+    margin-top: 1.25rem;
+  }
+
+  .home-intro-split .home-intro_points li {
+    padding: 0.75rem 0;
+  }
+}

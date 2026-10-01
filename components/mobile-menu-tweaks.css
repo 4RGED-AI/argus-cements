@@ -1,0 +1,213 @@
+/*
+ * Phone menu overlay (SiteChrome .mobile-menu; it only shows at max 767px).
+ * 1) Close: a compact 44x44 X button (.menu-close-x, thin navy X from
+ *    CloseIcon, aria-label "Close menu") at the top left, on the menu padding,
+ *    instead of the big beige "Close" box.
+ * 2) Price List / Enquire now: one row, 50/50 with a small gap, 52px tall
+ *    (were two full-width ~100px boxes), same colours, text and links. A gap
+ *    above them keeps the scrolling links list from touching them.
+ */
+@media (max-width: 767px) {
+  .mobile-menu_top .menu-close-x {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 0.2rem;
+    background: var(--wd_light-grey);
+    color: var(--wd_dark-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .mobile-menu_top .menu-close-x svg {
+    width: 28px;
+    height: 28px;
+    display: block;
+  }
+
+  .mobile-menu_top .menu-close-x svg path {
+    stroke-width: 1.25;
+  }
+
+  .mobile-menu_footer {
+    flex-direction: row;
+    column-gap: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--wd_dark-blue-faded);
+  }
+
+  .mobile-menu_footer .btn-large {
+    flex: 1 1 0;
+    min-width: 0;
+    height: 52px;
+    min-height: 52px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+/*
+ * V57 + V61: phone menu scrolling.
+ * The global Lenis smooth scroll (ScrollSystem) took every wheel event,
+ * including ones over the menu, so the menu never scrolled. The .mobile-menu
+ * panel has data-lenis-prevent (Lenis leaves it alone). V61: the Price List /
+ * Enquire now buttons are no longer pinned to the bottom of the screen (on a
+ * short viewport they ended up below the fold); they now follow the links
+ * list in normal flow and the whole panel scrolls when it is taller than the
+ * screen. overscroll-behavior stops the scroll leaking to the page, and the
+ * page itself is locked while the menu is open (unlocked once it closes).
+ */
+@media (max-width: 767px) {
+  /* The panel's 12px frame moves from .menu-el onto .mobile-menu (same
+     look), so a wheel on that frame is also inside the Lenis-free panel. */
+  .menu-el {
+    padding: 0;
+  }
+
+  .mobile-menu {
+    box-sizing: border-box;
+    padding: 0.75rem 0.75rem 1rem;
+    min-height: 0;
+    max-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+  }
+
+  .mobile-menu_top,
+  .mobile-menu_tabs,
+  .mobile-menu_content,
+  .mobile-menu_footer {
+    flex-shrink: 0;
+  }
+
+  .mobile-menu_content {
+    flex: 0 0 auto;
+    overflow: visible;
+    padding-bottom: 0;
+  }
+
+  .mobile-menu_footer {
+    margin-top: 1.5rem;
+  }
+
+  html:has(body[data-menu-open="true"]),
+  body[data-menu-open="true"] {
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+}
+
+/*
+ * V59: phone nav bar, the Enquire button copies that page's Menu button.
+ * Default pages (home, products, our work...): Menu is plain white text, so
+ * Enquire is plain white text too (no orange box). Pages whose Menu is
+ * outlined orange (founders, foundation, sustainability, plants, prices via
+ * about-nav.css; enquire via enquire.css) get an outlined orange Enquire that
+ * fills orange on hover / tap, like Menu there.
+ */
+@media (max-width: 767px) {
+  nav .nav-layout_mobile a.nav-btn.menu-enquire {
+    background: none;
+    border: none;
+    border-radius: 0;
+    color: #fff;
+  }
+
+  body:has(:is(.fn-page, .fd-page, .sn-page, .pl-page, .eq-page)) nav .nav-layout_mobile a.nav-btn.menu-enquire {
+    background: none;
+    color: var(--wd_orange);
+    border: 1px solid var(--wd_orange);
+    border-radius: var(--radius-0125);
+  }
+
+  body:has(:is(.fn-page, .fd-page, .sn-page, .pl-page, .eq-page)) nav .nav-layout_mobile a.nav-btn.menu-enquire:active {
+    background: var(--wd_orange);
+    color: var(--wd_white);
+  }
+}
+
+@media (max-width: 767px) and (hover: hover) and (pointer: fine) {
+  body:has(:is(.fn-page, .fd-page, .sn-page, .pl-page, .eq-page)) nav .nav-layout_mobile a.nav-btn.menu-enquire:hover {
+    background: var(--wd_orange);
+    color: var(--wd_white);
+  }
+}
+
+/*
+ * V60: cap the panel at the visible screen height (100dvh, 100vh fallback)
+ * so it scrolls instead of running past the bottom, and keep clear of the
+ * iPhone home bar.
+ */
+@media (max-width: 767px) {
+  .menu-el {
+    max-height: 100vh;
+    max-height: 100dvh;
+  }
+
+  .mobile-menu {
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100vh;
+    max-height: 100dvh;
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
+/*
+ * V62: tighter vertical rhythm in the phone menu so the Price List /
+ * Enquire now buttons sit higher (fit a ~780px tall visible area on the
+ * longest tab). Font sizes, colours, X / tab / button styles unchanged.
+ */
+@media (max-width: 767px) {
+  .mobile-menu {
+    padding-top: 0.5rem;
+  }
+
+  .mobile-menu_top {
+    padding: 0 0.75rem 0.5rem;
+  }
+
+  .mobile-menu_tabs {
+    padding-bottom: 0.6rem;
+  }
+
+  .mobile-menu_home-link {
+    padding-block: 0.4rem;
+  }
+
+  .mobile-menu_content .menu-group {
+    row-gap: 0.75rem;
+  }
+
+  .mobile-menu_content .menu-dropdown_title {
+    padding-bottom: 0.3rem;
+  }
+
+  .mobile-menu_content .menu-group_links .nav-link {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .mobile-menu_footer {
+    margin-top: 1rem;
+  }
+}
+
+/*
+ * V84/V85a: menu link hover (desktop menu overlay and phone menu only). The
+ * hovered link text turns orange (same orange as the active menu tab); the
+ * other links keep fading as before. The V84 hover dot was dropped as
+ * redundant next to the orange text, so the custom cursor dot shows as usual.
+ */
+@media (hover: hover) and (pointer: fine) {
+  .menu-inner.is-desktop .nav-link:hover,
+  .mobile-menu_content .nav-link:hover {
+    color: var(--wd_orange);
+  }
+}

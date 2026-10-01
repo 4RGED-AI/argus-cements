@@ -12,8 +12,8 @@
 /* No dark band: the page starts on white under the fixed nav, which is
    restyled orange on this page (about-nav.css). */
 .fn-top {
-  padding-top: calc(max(104px, 7.25vw) + var(--size-5));
-  padding-bottom: var(--size-5);
+  padding-top: calc(max(104px, 7.25vw) + var(--space-6));
+  padding-bottom: var(--space-3);
 }
 
 .fn-intro {
@@ -43,7 +43,7 @@
 
 .fn-list li {
   position: relative;
-  padding: 1em 0 1em 1.75em;
+  padding: 0.65em 0 0.65em 1.75em;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 
@@ -55,24 +55,24 @@
   content: "";
   position: absolute;
   left: 0.25em;
-  top: 1.55em;
+  top: 1.2em;
   width: 0.5em;
   height: 1px;
   background: var(--wd_orange);
 }
 
 .fn-list_compact li {
-  padding-top: 0.7em;
-  padding-bottom: 0.7em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 .fn-list_compact li::before {
-  top: 1.25em;
+  top: 1.05em;
 }
 
 /* Key figures */
 .fn-facts {
-  padding-bottom: var(--size-5);
+  padding-bottom: 0;
 }
 
 .fn-facts_grid {
@@ -88,8 +88,8 @@
 .fn-fact {
   display: flex;
   flex-direction: column;
-  gap: 0.75em;
-  padding: 2em 1.5em;
+  gap: 0.5em;
+  padding: 1.25em 1.5em;
 }
 
 .fn-fact + .fn-fact {
@@ -107,7 +107,8 @@
 
 /* Geopolycrete */
 .padding-large.fn-geo {
-  padding-top: var(--size-5);
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-3);
 }
 
 .fn-geo_layout {
@@ -149,6 +150,11 @@
 /* Waste streams */
 .padding-large.fn-waste {
   padding-top: 0;
+  padding-bottom: var(--space-3);
+}
+
+.fn-waste .v-flex_center {
+  row-gap: var(--space-3);
 }
 
 .fn-waste_title {
@@ -164,7 +170,7 @@
 
 .fn-chips {
   list-style: none;
-  margin: var(--size-5) auto 0;
+  margin: var(--size-3) auto 0;
   padding: 0;
   max-width: 60em;
   display: flex;
@@ -182,6 +188,12 @@
 /* Award */
 .padding-large.fn-award {
   padding-top: 0;
+  padding-bottom: var(--size-5);
+}
+
+/* Beats the shared last-section gap in about-nav.css for this page only. */
+main.fn-page.fn > section.padding-large.fn-award:last-child {
+  padding-bottom: var(--size-5);
 }
 
 .fn-award_layout {
@@ -251,8 +263,8 @@
 
 @media (max-width: 767px) {
   .fn-top {
-    padding-top: calc(92px + var(--size-3));
-    padding-bottom: var(--size-3);
+    padding-top: calc(92px + var(--space-4));
+    padding-bottom: var(--space-3);
   }
 
   .fn-intro_head,
@@ -268,7 +280,7 @@
   .fn-intro_text,
   .fn-geo_text,
   .fn-award_text {
-    margin-top: var(--size-3);
+    margin-top: var(--space-4);
   }
 
   .fn-facts_grid {
@@ -276,7 +288,11 @@
   }
 
   .fn-fact {
-    padding: 1.25em 0.75em;
+    padding: 1em 0.75em;
+  }
+
+  main.fn-page.fn > section.padding-large.fn-award:last-child {
+    padding-bottom: var(--size-3);
   }
 
   .fn-fact:nth-child(3) {

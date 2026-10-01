@@ -95,22 +95,24 @@ export const home = {
   watchCardImage: "/videos/argus-film-thumb.jpg",
   tagline: "Kiln-fired cement for the jobs that have to stand",
   title: "Argus",
-  introEyebrow: "The Quiet Strength",
+  /** Home section 2: deck slide 1 ("Argus Future Concrete"). */
+  introEyebrow: "Making Sustainable Buildings",
   intro:
-    "From quarry face to batch ticket — Argus Cements is built for contractors who need grade certainty, not another brochure.",
+    "Award winning. Rapid (10x faster). Green (<20% CO₂ & water). Unyielding (strong, lasting). Sustainable (waste to wealth).",
   introImage: img("1517581177682-a085bb7ffb15"),
-  seasonImage: img("1504307651254-35680f356dfd", 2400),
+  /** Home section 3 banner: IGBC award trophies on a card over a natural concrete architecture photo (Unsplash photo-1625390711106). */
+  seasonImage: "/images/igbc-award-v3.jpg",
   quoteImage: img("1503387762-592deb58ef4e"),
   globeImage: img("1486406146926-c627a92ad1ab", 2400),
-  seasonTitle: "Our Cycle",
+  seasonTitle: "India’s First 100% Geopolycrete",
   seasonBody:
-    "Limestone in, clinker out, trucks rolling before first light. We fire three kilns across the year, hold strategic silo stock, and keep a technical crew on call so a pour does not wait on a guess.",
+    "Building awarded the Most Innovative and Useful project of the year 2022 by the Indian Green Building Council.",
   founderQuote:
     "Cement is not a mystery brand. It is heat, chemistry, and the promise that the slab you signed last Tuesday still holds. That is the only reputation Argus is interested in.",
   founderName: "Helena Argus",
   founderRole: "Founder & Managing Director",
   ctaImage: img("1504307651254-35680f356dfd"),
-  plantsTitle: "Our Plants",
+  plantsTitle: "Our Roots",
   plantsEyebrow: "Future Concrete",
   plantsBody:
     "Making sustainable buildings. Argus Future Concrete uses alkali activated inorganic binders, with no water, clinker or additives, for lower CO2 emissions, and utilizes and neutralizes toxic industrial waste.",
@@ -157,7 +159,7 @@ export const camps = [
     slug: "quarry-gate",
     title: "Precast Works",
     excerpt:
-      "Placeholder: precast perimeter fencing, precast tiled walls, tetrapods and coastal armor. Plant details to come.",
+      "Precast perimeter fencing, precast tiled walls, tetrapods and coastal armor. Plant details to come.",
     coords: "[ Location to come ]",
     image: "/images/plants/precast.jpg",
   },

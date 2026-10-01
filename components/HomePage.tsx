@@ -10,6 +10,10 @@ import { FeaturedWork } from "@/components/FeaturedWork";
 import { HeroClouds } from "@/components/HeroClouds";
 import { HeroFilmPlayer } from "@/components/HeroFilmPlayer";
 import { LiquidGlass, PlayIcon, PlusIcon } from "@/components/Icons";
+import "@/components/plants-heading.css";
+import "@/components/home-section-gaps.css";
+import "@/components/home-award-banner.css";
+import "@/components/home-intro.css";
 
 export function HomePage() {
   const [filmOpen, setFilmOpen] = useState(false);
@@ -102,7 +106,13 @@ export function HomePage() {
                       </div>
                     </div>
                     <div className="text-scroll-fade">
-                      <h3 className="h3 text-indent-4col">{home.intro}</h3>
+                      {/* V65: first point as a short heading, the rest as a list */}
+                      <h3 className="h3 home-intro_title">{home.intro.split(/(?<=\.)\s+/)[0]}</h3>
+                      <ul className="home-intro_points">
+                        {home.intro.split(/(?<=\.)\s+/).slice(1).map((point) => (
+                          <li key={point} className="t-body">{point}</li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -133,6 +143,7 @@ export function HomePage() {
 
         <CardFlick />
 
+        {/* V66: quote section removed per Neel
         <section className="padding-large bg-white cover-panel stack-quote quote-split" data-nav-theme="dark">
           <div className="quote-split_photo">
             <Image src={home.quoteImage} alt="" fill sizes="50vw" className="img-fill" quality={90} />
@@ -155,11 +166,12 @@ export function HomePage() {
             </div>
           </div>
         </section>
+        */}
 
         <section className="padding-large bg-white camps-preview cover-panel stack-camps" data-nav-theme="dark">
           <div className="container-large">
             <div className="v-flex_center" style={{ marginBottom: "var(--size-375)" }}>
-              <h2 className="section-title-xxl">{home.plantsTitle}</h2>
+              <h2 className="section-title-xxl plants-title">{home.plantsTitle}</h2>
             </div>
             <p className="layout-title" style={{ marginBottom: "var(--size-15)" }}>
               {home.plantsEyebrow}
@@ -201,6 +213,7 @@ export function HomePage() {
 
         <section className="padding-none bg-dark cover-panel stack-globe">
           <div className="travel-globe">
+            {/* V63: "From Face to Frame" section hidden per Neel, keep for later
             <div className="travel-globe_head">
               <div className="container-large">
                 <div className="h-line_el" />
@@ -226,6 +239,7 @@ export function HomePage() {
                 </div>
               </div>
             </div>
+            */}
             <div className="travel-globe_outer">
               <div className="travel-globe_inner">
                 <Image

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { featuredWork, featuredWorkSection } from "@/data/featuredWork";
 import { FeaturedWorkVideo } from "@/components/FeaturedWorkVideo";
 import "@/components/featured-work.css";
+import "@/components/our-work-page.css";
 
 export function generateStaticParams() {
   return featuredWork.map((w) => ({ slug: w.slug }));
@@ -73,7 +73,7 @@ export default async function WorkPage({ params }: { params: Promise<{ slug: str
                 ))}
               </div>
             ) : null}
-            <div className="home-intro_col col-4 offset-6">
+            <div className={`home-intro_col col-4 offset-6${videos.length ? "" : " fw-intro-left"}`}>
               <p className="layout-title">{work.tags.join(" · ")}</p>
               <p className="t-body" style={{ marginTop: "1.25em" }}>
                 {work.excerpt}
@@ -84,15 +84,6 @@ export default async function WorkPage({ params }: { params: Promise<{ slug: str
                 </p>
               ))}
               {work.note ? <p className="t-body fw-note">{work.note}</p> : null}
-              <Link
-                className="btn btn-large hover-orange"
-                href={featuredWorkSection.ctaHref}
-                style={{ marginTop: "2em", maxWidth: "20em" }}
-              >
-                <span className="btn-inner">
-                  <span className="btn-text">{featuredWorkSection.ctaLabel}</span>
-                </span>
-              </Link>
             </div>
           </div>
 

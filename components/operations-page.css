@@ -1,0 +1,86 @@
+/*
+ * V69: Operations pages (/antarctica and /antarctica/<slug>) only, scoped to
+ * main.ops-page so the plant pages keep their own spacing.
+ * 1) Standard section rhythm: 140px desktop (--size-875), 80px phones (--size-5).
+ * 2) Detail block ("Supplied to", "Handles", "Moves", ...) with a 4:3 photo.
+ */
+main.ops-page > section.pl-top {
+  padding-bottom: var(--size-875);
+}
+
+main.ops-page > section.padding-large {
+  padding-bottom: var(--size-875);
+}
+
+main.ops-page > section.padding-large:not(:first-child) {
+  padding-top: 0;
+}
+
+.ops-detail_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--size-3);
+  align-items: center;
+}
+
+.ops-detail_grid.is-solo {
+  grid-template-columns: 1fr;
+}
+
+.ops-detail_text .pl-chips {
+  max-width: 32em;
+}
+
+.ops-detail_image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+@media screen and (max-width: 767px) {
+  main.ops-page > section.pl-top,
+  main.ops-page > section.padding-large {
+    padding-bottom: var(--size-5);
+  }
+
+  .ops-detail_grid {
+    grid-template-columns: 1fr;
+    gap: var(--size-2);
+  }
+}
+
+/* V70: item image cards replace the chips in the detail block. */
+.ops-items {
+  list-style: none;
+  margin: var(--size-3) 0 0;
+  padding: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--size-2);
+}
+
+.ops-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9em;
+  text-align: center;
+}
+
+.ops-item_image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+@media screen and (max-width: 767px) {
+  .ops-items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--size-2) 1em;
+  }
+}

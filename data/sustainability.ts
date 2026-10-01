@@ -136,8 +136,6 @@ export const sustainability = {
     label: "Placeholder",
     title: "Our sustainability commitments",
     body: [
-      "Placeholder: targets for waste reuse, CO2 reduction and water savings across Argus projects.",
-      "Placeholder: certifications, test reports and how impact is measured, to be supplied.",
     ],
   },
 

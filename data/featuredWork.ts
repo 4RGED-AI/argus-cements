@@ -132,7 +132,6 @@ export const featuredWorkIntro: FeaturedWorkIntro = {
   excerpt:
     "A showcase of projects built with Argus Future Concrete, from green buildings and roads made from industrial waste to marine habitats and coastal protection.",
   description: [
-    "Placeholder: add a short introduction to the portfolio here, for example where the projects are, who they were built for and what they prove about Future Concrete.",
   ],
   image: {
     src: `${dir("some-of-our-work")}/intro.jpg`,
@@ -206,8 +205,8 @@ export const featuredWork: FeaturedWork[] = [
       { date: "Apr 2021", label: "Form work", image: { src: `${dir("geopolycrete-building")}/timeline-4.jpg`, alt: "Column reinforcement and form work" } },
       { date: "Jul 2021", label: "Roof form and slab", image: { src: `${dir("geopolycrete-building")}/timeline-5.jpg`, alt: "Roof reinforcement ready for the slab" } },
     ],
-    banner: { src: `${dir("geopolycrete-building")}/photo.jpg`, alt: "Multi-storey concrete building under construction (placeholder)" },
-    background: { src: `${dir("geopolycrete-building")}/photo.jpg`, alt: "Multi-storey concrete building under construction (placeholder)" },
+    banner: { src: `${dir("geopolycrete-building")}/photo.jpg`, alt: "Multi-storey concrete building under construction" },
+    background: { src: `${dir("geopolycrete-building")}/photo.jpg`, alt: "Multi-storey concrete building under construction" },
   },
   {
     slug: "sewerage-plant",
@@ -219,11 +218,10 @@ export const featuredWork: FeaturedWork[] = [
       "A 125,000 litre sewerage treatment plant cast in Future Concrete, built to hold up in wet, chemically aggressive conditions.",
     description: [
       "Tanks, channels and walls for a 125,000 litre sewerage plant were cast in place with Future Concrete.",
-      "Placeholder: add the client, location, timeline and performance notes for this project here.",
     ],
     stats: [{ value: "125,000 L", label: "Treatment capacity" }],
-    banner: { src: `${dir("sewerage-plant")}/photo.jpg`, alt: "Aerial view of circular sewage treatment tanks (placeholder)" },
-    background: { src: `${dir("sewerage-plant")}/photo.jpg`, alt: "Aerial view of circular sewage treatment tanks (placeholder)" },
+    banner: { src: `${dir("sewerage-plant")}/photo.jpg`, alt: "Aerial view of circular sewage treatment tanks" },
+    background: { src: `${dir("sewerage-plant")}/photo.jpg`, alt: "Aerial view of circular sewage treatment tanks" },
     note: "A walkthrough video of this project is available in the deck.",
     // Site video supplied by Neel (portrait 480x848, 37 s, no audio track), remuxed with faststart.
     videos: [
@@ -246,10 +244,9 @@ export const featuredWork: FeaturedWork[] = [
       "A road built with bauxite residue, turning a difficult industrial by-product into a durable driving surface.",
     description: [
       "Red mud, the residue left over from alumina refining, was used to build a working road with Future Concrete.",
-      "Placeholder: add the site, length, traffic loading and test results for this road here.",
     ],
-    banner: { src: `${dir("red-mud-road")}/photo.jpg`, alt: "Asphalt paver laying a new road surface (placeholder)" },
-    background: { src: `${dir("red-mud-road")}/photo.jpg`, alt: "Asphalt paver laying a new road surface (placeholder)" },
+    banner: { src: `${dir("red-mud-road")}/photo.jpg`, alt: "Asphalt paver laying a new road surface" },
+    background: { src: `${dir("red-mud-road")}/photo.jpg`, alt: "Asphalt paver laying a new road surface" },
     // Site videos supplied by Neel (in his order), remuxed with faststart, no re-encode.
     // 1 and 4 are landscape 640x352 with sound; 2 and 3 are portrait 352x640 (rotated), no audio track.
     videos: [
@@ -271,10 +268,9 @@ export const featuredWork: FeaturedWork[] = [
       "Road repair trials carried out for the Brihanmumbai Municipal Corporation (BMC) on live city streets.",
     description: [
       "Future Concrete was trialled for road repairs with the Brihanmumbai Municipal Corporation (BMC).",
-      "Placeholder: add the trial locations, curing times and how quickly the roads reopened to traffic.",
     ],
-    banner: { src: `${dir("bmc-road-repair")}/photo.jpg`, alt: "Night-time road works under floodlights (placeholder)" },
-    background: { src: `${dir("bmc-road-repair")}/photo.jpg`, alt: "Night-time road works under floodlights (placeholder)" },
+    banner: { src: `${dir("bmc-road-repair")}/photo.jpg`, alt: "Night-time road works under floodlights" },
+    background: { src: `${dir("bmc-road-repair")}/photo.jpg`, alt: "Night-time road works under floodlights" },
     note: "A video of the trials is available in the deck.",
   },
   {
@@ -287,10 +283,9 @@ export const featuredWork: FeaturedWork[] = [
       "Alkaline biorocks tested to accelerate marine life and coral growth.",
     description: [
       "Biorocks cast with alkaline Future Concrete were tested to help accelerate marine life and coral growth.",
-      "Placeholder: add the reef site, monitoring period and observed growth results here.",
     ],
-    banner: { src: `${dir("biorocks")}/photo.jpg`, alt: "Coral reef growing on the sea floor (placeholder)" },
-    background: { src: `${dir("biorocks")}/photo.jpg`, alt: "Coral reef growing on the sea floor (placeholder)" },
+    banner: { src: `${dir("biorocks")}/photo.jpg`, alt: "Coral reef growing on the sea floor" },
+    background: { src: `${dir("biorocks")}/photo.jpg`, alt: "Coral reef growing on the sea floor" },
     // Site video supplied by Neel (square 640x640, 55 s, stereo AAC). Re-encoded to H.264 High CRF 20 with faststart, audio copied.
     videos: [
       {
@@ -313,10 +308,9 @@ export const featuredWork: FeaturedWork[] = [
       "Textured precast perimeter wall panels, cast off site and craned into place for fast, tidy boundaries.",
     description: [
       "Perimeter fencing panels were precast in Future Concrete with a textured stone finish, then lifted straight into position on site.",
-      "Placeholder: add panel sizes, run length and installation speed here.",
     ],
-    banner: { src: `${dir("precast-perimeter-fencing")}/photo.jpg`, alt: "Workers on steel reinforcement and scaffolding (placeholder)" },
-    background: { src: `${dir("precast-perimeter-fencing")}/photo.jpg`, alt: "Workers on steel reinforcement and scaffolding (placeholder)" },
+    banner: { src: `${dir("precast-perimeter-fencing")}/photo.jpg`, alt: "Workers on steel reinforcement and scaffolding" },
+    background: { src: `${dir("precast-perimeter-fencing")}/photo.jpg`, alt: "Workers on steel reinforcement and scaffolding" },
     gallery: [{ src: `${dir("precast-perimeter-fencing")}/gallery-1.jpg`, alt: "Installed precast perimeter wall" }],
   },
   {
@@ -329,10 +323,9 @@ export const featuredWork: FeaturedWork[] = [
       "Precast tiled wall panels and homes cast in place, two fast routes to finished housing with Future Concrete.",
     description: [
       "Precast tiled walls arrive finished and ready to fix, while cast-in-place homes are poured as a single shell on site.",
-      "Placeholder: add unit counts, build times and locations for these housing projects.",
     ],
-    banner: { src: `${dir("precast-walls-homes")}/photo.jpg`, alt: "Workers pouring a concrete foundation (placeholder)" },
-    background: { src: `${dir("precast-walls-homes")}/photo.jpg`, alt: "Workers pouring a concrete foundation (placeholder)" },
+    banner: { src: `${dir("precast-walls-homes")}/photo.jpg`, alt: "Workers pouring a concrete foundation" },
+    background: { src: `${dir("precast-walls-homes")}/photo.jpg`, alt: "Workers pouring a concrete foundation" },
     gallery: [{ src: `${dir("precast-walls-homes")}/gallery-1.jpg`, alt: "Precast tiled wall panel" }],
   },
   {
@@ -345,10 +338,9 @@ export const featuredWork: FeaturedWork[] = [
       "India's first road made with fly ash Future Concrete, built for the National Thermal Power Corporation (NTPC).",
     description: [
       "For the National Thermal Power Corporation, fly ash from power generation became the basis of India's first Future Concrete road.",
-      "Placeholder: add road length, location and the volume of fly ash reused here.",
     ],
-    banner: { src: `${dir("fly-ash-road")}/photo.jpg`, alt: "Road rollers and pipes on a road construction site (placeholder)" },
-    background: { src: `${dir("fly-ash-road")}/photo.jpg`, alt: "Road rollers and pipes on a road construction site (placeholder)" },
+    banner: { src: `${dir("fly-ash-road")}/photo.jpg`, alt: "Road rollers and pipes on a road construction site" },
+    background: { src: `${dir("fly-ash-road")}/photo.jpg`, alt: "Road rollers and pipes on a road construction site" },
   },
   {
     slug: "shotcreting",
@@ -360,10 +352,9 @@ export const featuredWork: FeaturedWork[] = [
       "Future Concrete sprayed onto slopes, walls and coastal edges with rig-mounted and handheld shotcrete equipment.",
     description: [
       "Future Concrete can be sprayed as shotcrete for slope stabilisation, retaining faces and coastal protection.",
-      "Placeholder: add project sites, areas covered and thickness specifications here.",
     ],
-    banner: { src: `${dir("shotcreting")}/photo.jpg`, alt: "Wet concrete being placed from a hose (placeholder)" },
-    background: { src: `${dir("shotcreting")}/photo.jpg`, alt: "Wet concrete being placed from a hose (placeholder)" },
+    banner: { src: `${dir("shotcreting")}/photo.jpg`, alt: "Wet concrete being placed from a hose" },
+    background: { src: `${dir("shotcreting")}/photo.jpg`, alt: "Wet concrete being placed from a hose" },
     gallery: [
       { src: `${dir("shotcreting")}/gallery-1.jpg`, alt: "Crew shotcreting a coastal slope" },
       { src: `${dir("shotcreting")}/gallery-2.jpg`, alt: "Amphibious rig working at the water's edge" },
@@ -379,10 +370,9 @@ export const featuredWork: FeaturedWork[] = [
       "Future Concrete put under a direct flame in live demonstrations, in front of engineers and clients.",
     description: [
       "Samples of Future Concrete were exposed to direct flame in live demonstrations to show how the material holds up to fire.",
-      "Placeholder: add test temperatures, duration and certification details here.",
     ],
-    banner: { src: `${dir("flame-tested")}/photo.jpg`, alt: "Flames burning on a hillside (placeholder)" },
-    background: { src: `${dir("flame-tested")}/photo.jpg`, alt: "Flames burning on a hillside (placeholder)" },
+    banner: { src: `${dir("flame-tested")}/photo.jpg`, alt: "Flames burning on a hillside" },
+    background: { src: `${dir("flame-tested")}/photo.jpg`, alt: "Flames burning on a hillside" },
     gallery: [
       { src: `${dir("flame-tested")}/gallery-1.jpg`, alt: "Engineers observing the flame test" },
       { src: `${dir("flame-tested")}/gallery-2.jpg`, alt: "Inspecting samples after the flame test" },
@@ -398,10 +388,9 @@ export const featuredWork: FeaturedWork[] = [
       "Ready-to-use instant green concrete kits that patch potholes and reopen roads quickly.",
     description: [
       "Instant road repair kits package Future Concrete for fast, on-the-spot pothole and patch repairs.",
-      "Placeholder: add kit sizes, setting time and where the kits have been deployed.",
     ],
-    banner: { src: `${dir("instant-road-repair-kits")}/photo.jpg`, alt: "Repair tools laid out on a dark surface (placeholder)" },
-    background: { src: `${dir("instant-road-repair-kits")}/photo.jpg`, alt: "Repair tools laid out on a dark surface (placeholder)" },
+    banner: { src: `${dir("instant-road-repair-kits")}/photo.jpg`, alt: "Repair tools laid out on a dark surface" },
+    background: { src: `${dir("instant-road-repair-kits")}/photo.jpg`, alt: "Repair tools laid out on a dark surface" },
     gallery: [
       { src: `${dir("instant-road-repair-kits")}/gallery-1.jpg`, alt: "Spot Crete-XT instant repair kit" },
       { src: `${dir("instant-road-repair-kits")}/gallery-2.jpg`, alt: "Road repair demonstration area" },
@@ -419,10 +408,9 @@ export const featuredWork: FeaturedWork[] = [
       "Interlocking concrete tetrapods cast to break wave energy and protect the shoreline.",
     description: [
       "Tetrapods were cast in Future Concrete to armor the coast, interlocking to absorb and break incoming waves.",
-      "Placeholder: add unit weights, quantities and the stretch of coastline protected.",
     ],
-    banner: { src: `${dir("tetrapods")}/photo.jpg`, alt: "Concrete tetrapods on a breakwater with a crane behind (placeholder)" },
-    background: { src: `${dir("tetrapods")}/photo.jpg`, alt: "Concrete tetrapods on a breakwater with a crane behind (placeholder)" },
+    banner: { src: `${dir("tetrapods")}/photo.jpg`, alt: "Concrete tetrapods on a breakwater with a crane behind" },
+    background: { src: `${dir("tetrapods")}/photo.jpg`, alt: "Concrete tetrapods on a breakwater with a crane behind" },
     gallery: [{ src: `${dir("tetrapods")}/gallery-1.jpg`, alt: "Single tetrapod unit after casting" }],
   },
   {
@@ -435,10 +423,9 @@ export const featuredWork: FeaturedWork[] = [
       "Perforated precast armor units placed by crane and barge to hold the shoreline.",
     description: [
       "Perforated armor blocks were precast in Future Concrete and placed along the shore to dissipate wave energy.",
-      "Placeholder: add the site, number of units and placement method here.",
     ],
-    banner: { src: `${dir("coastal-armor")}/photo.jpg`, alt: "Waves breaking against the coast (placeholder)" },
-    background: { src: `${dir("coastal-armor")}/photo.jpg`, alt: "Waves breaking against the coast (placeholder)" },
+    banner: { src: `${dir("coastal-armor")}/photo.jpg`, alt: "Waves breaking against the coast" },
+    background: { src: `${dir("coastal-armor")}/photo.jpg`, alt: "Waves breaking against the coast" },
     gallery: [
       { src: `${dir("coastal-armor")}/gallery-1.jpg`, alt: "Armor unit mould on site" },
       { src: `${dir("coastal-armor")}/gallery-2.jpg`, alt: "Armor units placed on the beach" },

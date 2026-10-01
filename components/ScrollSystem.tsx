@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 
@@ -27,6 +28,41 @@ function pinProgress(el: HTMLElement) {
 }
 
 export function ScrollSystem() {
+  const pathname = usePathname();
+  const lenisRef = useRef<Lenis | null>(null);
+  const popRef = useRef(false);
+  const firstRef = useRef(true);
+
+  /*
+   * V85: start every new page at the top. Lenis lives in the root layout and
+   * survives client-side navigation; if a link is clicked while its smooth
+   * scroll is still easing, it keeps animating toward the old (home page)
+   * target and overrides Next's scroll-to-top, so the new page opened at its
+   * footer. On a pathname change we stop that animation and jump to 0.
+   * Browser back/forward (popstate) and #anchor URLs are left alone.
+   */
+  useEffect(() => {
+    const onPop = () => {
+      popRef.current = true;
+    };
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
+
+  useEffect(() => {
+    if (firstRef.current) {
+      firstRef.current = false;
+      return;
+    }
+    if (popRef.current) {
+      popRef.current = false;
+      return;
+    }
+    if (window.location.hash) return;
+    lenisRef.current?.scrollTo(0, { immediate: true, force: true });
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   useEffect(() => {
     const html = document.documentElement;
     html.classList.add("lenis");
@@ -41,6 +77,7 @@ export function ScrollSystem() {
       wrapper: window,
       content: document.documentElement,
     });
+    lenisRef.current = lenis;
 
     const nav = document.querySelector<HTMLElement>("nav");
     html.style.setProperty("--header-shift", "0px");
@@ -81,6 +118,7 @@ export function ScrollSystem() {
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      lenisRef.current = null;
       html.classList.remove("lenis");
       html.style.removeProperty("--header-shift");
       html.style.removeProperty("--hero-progress");

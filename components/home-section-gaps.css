@@ -1,0 +1,68 @@
+/*
+ * Home page spacing between section 4 (CardFlick "Other Products"),
+ * section 5 (founder quote, section.stack-quote.quote-split) and
+ * section 6 ("Our Plants", section.camps-preview).
+ * The shared section.padding-large gives 320px top and bottom (160px on
+ * mobile), which left 320px / 640px of empty white between these sections.
+ * Tightened to one normal section gap: 140px desktop, 80px mobile.
+ */
+section.padding-large.stack-quote.quote-split {
+  padding-top: var(--size-875);
+  padding-bottom: 0;
+}
+
+section.padding-large.camps-preview.stack-camps {
+  padding-top: var(--size-875);
+}
+
+@media (max-width: 767px) {
+  section.padding-large.stack-quote.quote-split {
+    padding-top: var(--size-5);
+  }
+
+  section.padding-large.camps-preview.stack-camps {
+    padding-top: var(--size-5);
+  }
+}
+
+/*
+ * V61: home section 2 on phones. The section after the construction photo
+ * (Making Sustainable Buildings / AWARD WINNING...) kept the desktop 320px
+ * top padding, leaving ~320px of empty white under the photo. Use the
+ * standard 80px mobile section gap.
+ */
+@media (max-width: 767px) {
+  .home-intro_photo + section.padding-top-large-bottom-medium {
+    padding-top: var(--size-5);
+  }
+}
+
+/*
+ * V64: home "Our Plants" cards -> skyscraper photo / logos section.
+ * With the "From Face to Frame" band hidden (V63), the cards' 70svh
+ * min-height (empty space under the short card text) plus the section's
+ * large bottom padding left ~230-410px of white. Cards now hug their content
+ * and the section's bottom padding makes text -> photo exactly one standard
+ * section gap: 140px desktop (scales with the tablet rem scale at 768),
+ * 80px phones. On phones the cards stack, so only the last card is changed
+ * there (the spacing between stacked cards stays as it was).
+ */
+section.padding-large.camps-preview.stack-camps {
+  padding-bottom: calc(var(--size-875) - var(--space-4));
+}
+
+@media (min-width: 768px) {
+  section.camps-preview.stack-camps .camps-preview_card {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  section.padding-large.camps-preview.stack-camps {
+    padding-bottom: calc(var(--size-5) - var(--space-4));
+  }
+
+  section.camps-preview.stack-camps .camps-preview_card:last-child {
+    min-height: 0;
+  }
+}

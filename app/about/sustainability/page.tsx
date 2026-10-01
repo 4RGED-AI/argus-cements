@@ -191,22 +191,25 @@ export default function SustainabilityPage() {
         </div>
       </section>
 
-      <section className="padding-large bg-white sn-group">
-        <div className="container-large">
-          <div className="u-grid no-gap">
-            <div className="sn-group_box">
-              <p className="sn-note layout-title_sm">{placeholder.label}</p>
-              <h2 className="h3 sn-h">{placeholder.title}</h2>
-              {placeholder.body.map((text) => (
-                <p key={text} className="t-body sn-body">
-                  {text}
-                </p>
-              ))}
+      {/* V68: dashed placeholder box removed entirely per Neel
+      {placeholder.body.length > 0 && (
+        <section className="padding-large bg-white sn-group">
+          <div className="container-large">
+            <div className="u-grid no-gap">
+              <div className="sn-group_box">
+                <h2 className="h3 sn-h">{placeholder.title}</h2>
+                {placeholder.body.map((text) => (
+                  <p key={text} className="t-body sn-body">
+                    {text}
+                  </p>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )} */}
 
+      {/* V67: "Work with us" band removed per Neel
       <section className="sn-cta">
         <div className="container-large v-flex_center">
           <p className="layout-title">{cta.label}</p>
@@ -223,6 +226,7 @@ export default function SustainabilityPage() {
           </div>
         </div>
       </section>
+      */}
     </main>
   );
 }

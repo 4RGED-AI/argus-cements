@@ -1,0 +1,16 @@
+/*
+ * Home "Our Plants" heading (HomePage, section.camps-preview).
+ * Same section-title-xxl treatment (Oswald 400, uppercase, navy, line-height
+ * 0.9), but smaller: 70px less on desktop (250px at 1440) / 50px less on
+ * mobile (30px).
+ * Scoped with .plants-title so the other section-title-xxl headings are unchanged.
+ */
+.camps-preview .section-title-xxl.plants-title {
+  font-size: calc(var(--size-20) - 70px);
+}
+
+@media (max-width: 767px) {
+  .camps-preview .section-title-xxl.plants-title {
+    font-size: calc(var(--size-5) - 50px);
+  }
+}

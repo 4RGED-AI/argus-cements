@@ -8,6 +8,15 @@
   height: auto;
 }
 
+/* Strips share the row by flex-grow (set inline: active 5, others 1), so the
+   row is always exactly full, even while the active card changes quickly. */
+.cf-flow .card-flick_item {
+  flex: 1 1 0%;
+  width: auto;
+  min-width: 0;
+  transition: flex-grow 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .cf-track {
   height: calc(var(--flick-count, 6) * 40svh);
 }

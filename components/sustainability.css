@@ -27,7 +27,7 @@
 /* Top: starts on white under the fixed nav (orange here, see about-nav.css). */
 .sn-top {
   padding-top: calc(max(104px, 7.25vw) + var(--size-5));
-  padding-bottom: var(--size-10);
+  padding-bottom: var(--size-5);
 }
 
 .sn-top_layout {
@@ -78,7 +78,7 @@
   overflow: hidden;
   color: var(--wd_white);
   background: var(--wd_black, #000);
-  padding: var(--size-10) 0;
+  padding: var(--size-5) 0;
   text-align: center;
 }
 
@@ -121,7 +121,7 @@
 
 /* Converts this into this */
 .sn-convert {
-  padding: var(--size-5) 0;
+  padding: var(--size-3) 0;
 }
 
 .sn-convert_grid {
@@ -176,7 +176,8 @@
 }
 
 .padding-large.sn-benefits {
-  padding-top: var(--size-5);
+  padding-top: 0;
+  padding-bottom: var(--size-875);
 }
 
 .sn-list {
@@ -208,6 +209,7 @@
 /* Building figures and award */
 .padding-large.sn-building {
   padding-top: 0;
+  padding-bottom: var(--size-875);
 }
 
 .sn-figures {
@@ -238,7 +240,7 @@
 }
 
 .sn-award {
-  margin-top: var(--size-5);
+  margin-top: var(--size-3);
   align-items: center;
 }
 
@@ -274,6 +276,7 @@
 /* Waste streams */
 .padding-large.sn-waste {
   padding-top: 0;
+  padding-bottom: var(--size-875);
 }
 
 .sn-waste_title {
@@ -288,7 +291,7 @@
 
 .sn-chips {
   list-style: none;
-  margin: var(--size-5) auto 0;
+  margin: var(--size-3) auto 0;
   padding: 0;
   max-width: 60em;
   display: flex;
@@ -306,6 +309,7 @@
 /* Waste-based projects */
 .padding-large.sn-projects {
   padding-top: 0;
+  padding-bottom: var(--size-875);
 }
 
 .sn-cards {
@@ -355,6 +359,7 @@
 /* Who we are */
 .padding-large.sn-who {
   padding-top: 0;
+  padding-bottom: var(--size-875);
 }
 
 .sn-who_title {
@@ -431,7 +436,11 @@
   }
 
   .sn-stat {
-    padding: var(--size-5) 0;
+    padding: var(--size-3) 0;
+  }
+
+  main.sn-page > section.padding-large {
+    padding-bottom: var(--size-5);
   }
 
   .sn-stat_credit {

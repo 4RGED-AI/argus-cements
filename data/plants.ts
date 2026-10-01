@@ -50,8 +50,6 @@ export const plantDetails: Record<string, PlantDetail> = {
       ],
     },
     placeholder: [
-      "Placeholder: the Chennai facility’s address, size, equipment and team.",
-      "Placeholder: what is made here today. Neel will send the real content.",
     ],
   },
 
@@ -108,8 +106,6 @@ export const plantDetails: Record<string, PlantDetail> = {
       ],
     },
     placeholder: [
-      "Placeholder: where the R&D lab is, its testing capabilities and current research.",
-      "Placeholder: Neel will send the real content.",
     ],
   },
 
@@ -149,8 +145,6 @@ export const plantDetails: Record<string, PlantDetail> = {
       ],
     },
     placeholder: [
-      "Placeholder: the precast plant’s location, capacity and production details.",
-      "Placeholder: Neel will send the real content.",
     ],
   },
 };

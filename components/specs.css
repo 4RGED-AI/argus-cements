@@ -1,0 +1,94 @@
+/*
+ * Specs page (/prices). Reuses the enquire page header (eq-top / eq-title /
+ * eq-body, plus its orange nav fix via .eq-page) and the product page's
+ * key-specs rows (px-block / px-specs from product-extras.css).
+ * Own classes use the sp- prefix.
+ */
+.sp-list {
+  padding-bottom: var(--size-875);
+}
+
+.sp-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em 1.25em;
+  margin-top: 1em;
+}
+
+.sp-link {
+  color: var(--wd_orange);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.1em;
+}
+
+.sp-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1em 2em;
+  padding-top: var(--size-3);
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.sp-cta .btn {
+  max-width: 20em;
+}
+
+.sp-note {
+  opacity: 0.6;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .sp-link:hover {
+    color: var(--wd_dark-blue);
+  }
+}
+
+@media (max-width: 767px) {
+  .sp-list {
+    padding-bottom: var(--size-5);
+  }
+}
+
+/*
+ * V73: same left line as the product pages (V71). On desktop and tablet the
+ * spec blocks (labels, View product / Enquire links, row dividers) and the
+ * CTA row start one column in on the 12-column grid, like the page heading;
+ * the spec rows stay on column 7 (the page midpoint) and long values wrap.
+ * Phones: heading, labels and rows all on the 12px container edge.
+ */
+@media (min-width: 768px) {
+  .sp-list > .container-large > .px-block,
+  .sp-list > .container-large > .sp-cta {
+    margin-left: calc(100% / 12);
+  }
+
+  .sp-list > .container-large > .px-block {
+    grid-template-columns: calc(100% * 5 / 11) minmax(0, 1fr);
+    column-gap: 0;
+  }
+
+  .sp-list > .container-large > .px-block > :first-child {
+    padding-right: 2em;
+  }
+}
+
+.sp-list .px-specs_row {
+  grid-template-columns: 12em minmax(0, 1fr);
+}
+
+.sp-list .px-specs_row dd {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 767px) {
+  .sp-page .eq-intro > .eq-intro_head,
+  .sp-page .eq-intro > .eq-intro_text {
+    grid-column: 1 / -1;
+  }
+
+  .sp-list .px-specs_row {
+    grid-template-columns: 1fr;
+  }
+}

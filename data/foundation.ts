@@ -1,108 +1,95 @@
 /**
- * Foundation page (/about/foundation).
+ * Argus Aggregates page (/about/foundation; the nav and footer link it as
+ * "Argus Aggregates", the group's sister company for stone, sand and quarry
+ * feed).
  *
- * Text marked `fromDeck` is taken word for word from the Argus Future Concrete
- * pitch deck (slide 5 "Who we are.", slide 6 "Argus Geopolycrete (Future
- * concrete)" and slide 7 "Industrial waste streams"). Anything under
- * `placeholder` is NOT from the deck and must be replaced with final copy.
+ * V75: this page used to repeat the Future Concrete deck copy (Who we are,
+ * key figures, Geopolycrete mission, industrial waste streams and the IGBC
+ * award) that already appears on the Sustainability and plant pages. It now
+ * carries aggregates-specific copy. No figures or certifications are claimed.
+ * Photos: Pexels 32129141 (conveyors and stockpiles), Pexels 9891089 (graded
+ * stone), saved as public/images/foundation/aggregates-*.jpg.
  */
 export const foundation = {
-  eyebrow: "About · Foundation",
+  eyebrow: "About · Argus Aggregates",
 
-  // Deck slide 5, verbatim.
   whoWeAre: {
-    title: "Who we are.",
+    title: "Argus Aggregates",
     points: [
-      "Established in Chennai in 1975 by Dr RV Ramani as a manufacturer of custom built process equipment pilot research",
-      "Dr Ramani became widely renowned for practical applications of R&D",
-      "Dr Ramani helped India’s largest Silicate manufacturer as a technical director, and extensively refined their processes",
-      "Argus future concrete was born out of research into inorganic polymers and has been recognized as the practical and implemented solution using polymers by the Geopolymer institute, France",
-      "In 2020, during the pandemic, Argus constructed India’s first 5000 sq ft residential building with farm labor, no water, bricks, additives and cement, saving 65 tons of CO2 emissions in the process",
-      "Argus won multiple Greenco awards in the subsequent year",
+      "Argus Aggregates is the Argus group’s sister company for stone, sand and quarry feed",
+      "It supplies graded aggregates to the group’s precast works and batch plants, and to outside contractors",
+      "Crushed stone, manufactured sand and fines are produced and graded for concrete, precast and road work",
+      "Every stockpile is sampled and logged before it is dispatched",
+      "Quarry dust and fines are put to use, including as raw material for Argus Geopolycrete",
+      "Dust control and water recycling are part of day-to-day work on site",
     ],
   },
 
-  // Key figures, drawn from deck slide 5.
+  // Product range at a glance (rendered in the large figures row).
   facts: [
-    { value: "1975", label: "Established in Chennai by Dr RV Ramani" },
-    { value: "5000 sq ft", label: "India’s first residential building of its kind, built in 2020 during the pandemic" },
-    { value: "65 tons", label: "CO2 emissions saved on that building" },
-    { value: "2022", label: "Most Innovative and Useful project of the year, Indian Green Building council" },
+    { value: "Stone", label: "Crushed and graded coarse aggregates" },
+    { value: "Sand", label: "Manufactured sand for concrete and plaster" },
+    { value: "Fines", label: "Quarry dust and fines, reused wherever possible" },
+    { value: "1975", label: "Part of the Argus group, founded in Chennai" },
   ],
 
-  // Deck slide 6, verbatim, with the slide's photo and caption.
   geopolycrete: {
-    label: "Our mission",
-    title: "Argus Geopolycrete (Future concrete)",
+    label: "What we supply",
+    title: "Aggregates for every pour",
     points: [
-      "Alkali activated inorganic binders",
-      "No water, clinker, additives",
-      "No special skilled labor",
-      "Lower construction time, faster setting",
-      "Lower CO2 emissions",
-      "Utilizes and neutralizes toxic industrial waste",
-      "Higher strength, highest green quotient",
-      "Saving in construction time",
-      "Relatively very less capital investment",
+      "Coarse aggregates in standard sizes for concrete and precast",
+      "Manufactured sand",
+      "Quarry dust and fines",
+      "Graded material for road bases and sub-bases",
+      "Feed for the Argus precast works and batch plants",
+      "Bulk supply to contractors and project sites",
     ],
     image: {
-      src: "/images/foundation/ramani-davidovits.jpg",
+      src: "/images/foundation/aggregates-conveyors.jpg",
       width: 2128,
       height: 1197,
-      alt: "Dr Ramani in conversation with Prof Davidovits at the Geopolymer Institute, France",
-      caption: "Dr Ramani with Prof Davidovits, at Geopolymer Institute, France",
+      alt: "Conveyors feeding sand and stone stockpiles, seen from above",
+      caption: "Conveyors feeding graded stockpiles",
     },
   },
 
-  // Deck slide 7, verbatim.
   waste: {
-    label: "What goes into Future Concrete",
-    title: "Industrial waste streams",
+    label: "Where it goes",
+    title: "Who we supply",
     items: [
-      "Ferro slag",
-      "Blast furnace slag",
-      "Ferro nickel slag",
-      "Ferrochrome slag",
-      "Slag sand",
-      "Copper slag",
-      "Red mud lumps",
-      "Fly ash",
-      "Dried pond ash",
-      "Boiler wood-ash",
-      "Quarry dust",
-      "Rice husk ash",
-      "Lime sludge",
-      "GGBS",
-      "Demolition waste",
+      "Precast works",
+      "Batch plants",
+      "Ready-mix",
+      "Road works",
+      "Coastal projects",
+      "Building sites",
+      "Geopolycrete production",
     ],
   },
 
-  // Deck slide 5 (award graphic and its text). The image is the trophies cropped from the slide.
   award: {
-    label: "Recognition",
-    title: "India’s first 100% Geopolycrete building",
-    body: "Awarded The most Innovative and Useful project of the year 2022 by Indian Green Building council.",
+    label: "Quality",
+    title: "Sampled, graded, logged",
+    body: "Each stockpile is sampled and graded before dispatch, so every load matches what the mix design calls for. Grading records travel with the order.",
     image: {
-      src: "/images/foundation/award.jpg",
+      src: "/images/foundation/aggregates-graded-stone.jpg",
       width: 560,
       height: 640,
-      alt: "The two CII awards won by Argus Concrete Solutions, Chennai",
+      alt: "Close-up of graded stone aggregate",
     },
   },
 
-  // PLACEHOLDER: not from the deck. Replace with final copy.
+  // Not rendered (section commented out in V68).
   placeholder: {
     label: "Placeholder",
     title: "The Argus group",
     body: [
-      "Placeholder: a short history of the Argus group in Chennai, from process equipment in 1975 to Geopolycrete today.",
-      "Placeholder: group companies, facilities and the team, to be supplied.",
     ],
   },
 
   cta: {
     label: "Work with us",
-    title: "Build with Argus Future Concrete",
+    title: "Order aggregates from Argus",
     primary: { label: "Enquire now", href: "/enquire" },
     secondary: { label: "Meet our founder", href: "/about/founders" },
   },

@@ -1,0 +1,33 @@
+/*
+ * Home section 3 (tall parallax banner, .wd-mnt): IGBC award.
+ * Desktop: the image (igbc-award-v3.jpg, 2400x1500) is a natural-colour
+ * concrete architecture photo (Unsplash photo-1625390711106) with the site's
+ * rgba(0,0,0,0.2) overlay plus a neutral dark gradient on the text side, and
+ * the trophies on a light card (card 620x824 at 1226,433; trophies centred at
+ * 1536,840) baked in. It fits the 16:10 viewport as-is.
+ * Phones: the text column (x ~11-56vw) sweeps the whole height of the pinned
+ * media while scrolling, so the portrait photo (igbc-award-v3-mobile-bg.jpg,
+ * same overlay) is shown on its own and the trophy card (igbc-award-v3-card.png,
+ * 800x1004 with the card at 90,90 620x824) sits in the free right-hand column:
+ * card 37vw wide (59-96vw), centred 76% down, below the "How it works" tab.
+ */
+@media (max-width: 767px) {
+  .wd-mnt .tall-parallax-banner_media {
+    background: rgb(40, 40, 38) url("/images/igbc-award-v3-mobile-bg.jpg") 50% 50% / cover no-repeat;
+  }
+
+  .wd-mnt .tall-parallax-banner_media .img-fill {
+    display: none;
+  }
+
+  .wd-mnt .tall-parallax-banner_media::after {
+    content: "";
+    position: absolute;
+    width: 47.74vw;
+    height: 59.92vw;
+    left: 53.63vw;
+    top: calc(76% - 29.96vw);
+    background: url("/images/igbc-award-v3-card.png") 0 0 / 100% 100% no-repeat;
+    pointer-events: none;
+  }
+}

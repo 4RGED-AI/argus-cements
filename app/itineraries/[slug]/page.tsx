@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { trips } from "@/data/site";
 
@@ -35,7 +34,7 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
       <section className="padding-large bg-white" data-nav-theme="dark">
         <div className="container-large">
           <div className="home-intro_layout u-grid no-gap">
-            <div className="home-intro_col col-4 offset-6">
+            <div className="home-intro_col col-4 offset-6 px-intro-left">
               <p className="layout-title">{trip.price}</p>
               <p className="t-body" style={{ marginTop: "1.25em" }}>
                 {trip.excerpt}
@@ -43,11 +42,6 @@ export default async function TripPage({ params }: { params: Promise<{ slug: str
               <p className="t-body" style={{ marginTop: "1.25em" }}>
                 Full mill certificates and pour notes would sit here on a live Argus Cements product page.
               </p>
-              <Link className="btn btn-large hover-orange" href="/enquire" style={{ marginTop: "2em", maxWidth: "20em" }}>
-                <span className="btn-inner">
-                  <span className="btn-text">Enquire now</span>
-                </span>
-              </Link>
             </div>
           </div>
         </div>

@@ -4,8 +4,10 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { footer, home, nav, trips } from "@/data/site";
 import { CloseIcon, LiquidGlass, PlayIcon, PlusIcon, Wordmark } from "./Icons";
+import { HeroFilmPlayer } from "./HeroFilmPlayer";
 import { HowItWorksFlyout } from "./HowItWorksFlyout";
 import { ScrollSystem } from "./ScrollSystem";
+import "./mobile-menu-tweaks.css";
 
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,6 +17,7 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
   const [openGroup, setOpenGroup] = useState<string | null>(null);
   const [hoverImage, setHoverImage] = useState<string | null>(null);
   const [shownImage, setShownImage] = useState<string | null>(null);
+  const [filmOpen, setFilmOpen] = useState(false);
 
   const closeMenu = () => {
     setMenuOpen(false);
@@ -273,12 +276,10 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
                         </Link>
                       </div>
                     </div>
-                    <div className="mobile-menu">
+                    <div className="mobile-menu" data-lenis-prevent="true">
                       <div className="mobile-menu_top">
-                        <button className="btn btn-large menu-close" type="button" onClick={closeMenu}>
-                          <div className="btn-inner">
-                            <span className="btn-text">Close</span>
-                          </div>
+                        <button className="menu-close-x" type="button" onClick={closeMenu} aria-label="Close menu">
+                          <CloseIcon />
                         </button>
                       </div>
                       <div className="mobile-menu_tabs" role="tablist">
@@ -381,7 +382,7 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
                           { href: "/itineraries", label: "View All" },
                         ],
                       },
-                      { title: "Plants", links: footer.camps },
+                      { title: "Our Roots", links: footer.camps },
                     ]}
                   />
                   <FooterCol
@@ -395,13 +396,13 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
               </div>
               <div className="footer-col col-4 offset-8">
                 <div className="footer-cta_layout">
-                  <button className="btn btn-image" type="button">
+                  <button className="btn btn-image" type="button" onClick={() => setFilmOpen(true)}>
                     <div className="image-with-overlay" style={{ ["--overlay-opacity" as string]: 0.2 }}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         className="image-with-overlay_img"
                         alt="Video preview"
-                        src={home.watchImage}
+                        src={home.watchCardImage}
                       />
                       <div className="image-overlay" />
                     </div>
@@ -532,6 +533,9 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       </footer>
+
+      {/* Footer "Watch Film" card: same film player as the home hero button. */}
+      <HeroFilmPlayer open={filmOpen} onClose={() => setFilmOpen(false)} />
 
       {cookies && (
         <div className="cookie-banner visible">

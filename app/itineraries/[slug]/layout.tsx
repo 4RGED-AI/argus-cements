@@ -1,4 +1,5 @@
 import { ProductExtras } from "@/components/ProductExtras";
+import "@/components/product-page-gaps.css";
 
 /**
  * Adds the placeholder extras (specs, applications, note, FAQ) below each

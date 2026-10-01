@@ -1,0 +1,82 @@
+/*
+ * Plant pages (/camps/<slug>, PlantPage.tsx) only.
+ * 1) The placeholder box under "More about Argus" has no dashed border; its
+ *    side/top padding is kept so the "Placeholder" pill (which keeps its own
+ *    dashed pill outline) and the text stay where they were. Its bottom
+ *    padding is dropped so it adds no extra space above the footer.
+ * 2) Space between that last section and the footer: 140px desktop / 80px
+ *    mobile (section.padding-large gives 320px / 160px).
+ * 3) Space below the first list section (.pl-points: "Products", "What we do",
+ *    ...) before the next block (photos / figure / "More about Argus"): also
+ *    140px desktop / 80px mobile.
+ */
+.pl-page .pl-placeholder {
+  border: 0;
+  padding-bottom: 0;
+}
+
+.pl-page section.padding-large.pl-more {
+  padding-bottom: var(--size-875);
+}
+
+.pl-page section.padding-large.pl-points {
+  padding-bottom: var(--size-875);
+}
+
+@media (max-width: 767px) {
+  .pl-page section.padding-large.pl-more {
+    padding-bottom: var(--size-5);
+  }
+
+  .pl-page section.padding-large.pl-points {
+    padding-bottom: var(--size-5);
+  }
+}
+
+/* V67: Operations listing (/antarctica) card grid spacing. */
+.pl-page .ops-grid {
+  margin-top: var(--size-5);
+  row-gap: var(--size-5);
+}
+
+.pl-page .ops-card {
+  min-height: 0;
+}
+
+.pl-page .ops-card .camps-preview_content {
+  padding-bottom: 0;
+}
+
+/*
+ * V80: Plant pages (/camps/<slug>) only (the operations pages share .pl-page
+ * but carry .ops-page, so they are excluded). Space between sections cut by
+ * about 25% (e.g. 160 -> 120, 140 -> 110, 320 -> 240 desktop; 160 -> 120,
+ * 80 -> 60 mobile). The gap above the footer (140 / 80) is unchanged.
+ */
+main.pl-page:not(.ops-page) section.pl-top {
+  padding-bottom: calc(var(--size-5) * 0.75);
+}
+
+main.pl-page:not(.ops-page) section.padding-large.pl-points {
+  padding-top: calc(var(--size-5) * 0.75);
+  padding-bottom: calc(var(--size-875) * 0.786);
+}
+
+main.pl-page:not(.ops-page) section.pl-figure,
+main.pl-page:not(.ops-page) section.pl-gallery {
+  padding-bottom: calc(var(--size-10) * 0.75);
+}
+
+main.pl-page:not(.ops-page) section.padding-large.pl-chips_section {
+  padding-bottom: calc(var(--size-20) * 0.75);
+}
+
+@media (max-width: 767px) {
+  main.pl-page:not(.ops-page) section.padding-large.pl-points {
+    padding-bottom: calc(var(--size-5) * 0.75);
+  }
+
+  main.pl-page:not(.ops-page) section.padding-large.pl-chips_section {
+    padding-bottom: calc(var(--size-10) * 0.75);
+  }
+}

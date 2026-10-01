@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { productExtras, productExtrasLabels as labels } from "@/data/productExtras";
 import "./product-extras.css";
 
@@ -55,6 +56,20 @@ export function ProductExtras({ slug }: { slug: string }) {
             ))}
           </div>
         </div>
+
+        {/* V74: closing photo, last block above the footer. V79: a second photo beside it. */}
+        {extra.endImage ? (
+          <div className={extra.endImage2 ? "px-end-pair" : "px-end-pair is-single"}>
+            <div className="px-end">
+              <Image src={extra.endImage.src} alt={extra.endImage.alt} fill unoptimized sizes="(max-width: 767px) 100vw, 46vw" style={{ objectFit: "cover" }} />
+            </div>
+            {extra.endImage2 ? (
+              <div className="px-end">
+                <Image src={extra.endImage2.src} alt={extra.endImage2.alt} fill unoptimized sizes="(max-width: 767px) 100vw, 46vw" style={{ objectFit: "cover" }} />
+              </div>
+            ) : null}
+          </div>
+        ) : null}
       </div>
     </section>
   );

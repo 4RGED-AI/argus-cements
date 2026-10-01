@@ -1,0 +1,24 @@
+/*
+ * /our-work/[slug] project pages only (imported by app/our-work/[slug]/page.tsx).
+ * 1) Gap between the hero image and the intro: 140px desktop / 80px mobile
+ *    (the shared section.padding-large gives 320px / 160px).
+ * 2) Projects without videos have an empty left column, so their intro text
+ *    (.fw-intro-left, set in page.tsx when there are no videos) starts at the
+ *    left content column instead of the right half. Same width; desktop only
+ *    (on mobile the intro is already a single column).
+ */
+.hero-banner + section.padding-large.fw-page-section {
+  padding-top: var(--size-875);
+}
+
+@media (min-width: 768px) {
+  .fw-page-section .home-intro_col.fw-intro-left {
+    grid-column-start: 2;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-banner + section.padding-large.fw-page-section {
+    padding-top: var(--size-5);
+  }
+}

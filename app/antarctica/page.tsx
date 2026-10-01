@@ -1,5 +1,6 @@
-import StubPage from "@/components/StubPage";
+import { OperationsIndex } from "@/components/OperationsPage";
 
+/** V67: Operations listing (menu "View All"). */
 export default function Page() {
-  return <StubPage title="Operations" body="Quarries, berths, batch plants, and the quality lab. Demo operations listing." />;
+  return <OperationsIndex />;
 }

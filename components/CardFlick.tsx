@@ -14,11 +14,14 @@ export function CardFlick() {
   const headRef = useRef<HTMLElement>(null);
   const stickRef = useRef<HTMLDivElement>(null);
   const lastIdx = useRef(-1);
-  const lastPointer = useRef<{ x: number; y: number } | null>(null);
+  const moveAnchor = useRef<{ x: number; y: number } | null>(null);
+  const lastScroll = useRef(0);
   const [scrollActive, setScrollActive] = useState(0);
   const [hover, setHover] = useState<number | null>(null);
   const active = hover ?? scrollActive;
-  const rest = `${50 / (trips.length - 1)}%`;
+  // Flex-grow weights instead of animated widths, so the strips always fill
+  // the row (active 50%, the others share the rest) even mid-transition.
+  const ACTIVE_GROW = trips.length - 1;
 
   useEffect(() => {
     let raf = 0;
@@ -45,13 +48,34 @@ export function CardFlick() {
     return () => cancelAnimationFrame(raf);
   }, []);
 
-  // Hover preview only for a real mouse that actually moved, so a cursor
-  // resting over the cards (or a tap on a phone) cannot freeze the carousel.
+  // Any page scroll (wheel, trackpad, Lenis smoothing, keys) cancels the hover
+  // preview, so the card under a resting or slightly drifting cursor can never
+  // override the scroll position (that caused the snap-back at the end).
+  useEffect(() => {
+    const onScroll = () => {
+      lastScroll.current = performance.now();
+      moveAnchor.current = null;
+      setHover((prev) => (prev === null ? prev : null));
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Hover preview only for a real mouse, and only once scrolling has been idle
+  // for 400ms and the cursor then moved at least 6px: while the user scrolls,
+  // the scroll position always decides the active card.
   const onPointerMove = (i: number) => (e: PointerEvent) => {
     if (e.pointerType !== "mouse") return;
-    const last = lastPointer.current;
-    if (last && last.x === e.clientX && last.y === e.clientY) return;
-    lastPointer.current = { x: e.clientX, y: e.clientY };
+    if (performance.now() - lastScroll.current < 400) {
+      moveAnchor.current = null;
+      return;
+    }
+    const a = moveAnchor.current;
+    if (!a) {
+      moveAnchor.current = { x: e.clientX, y: e.clientY };
+      return;
+    }
+    if (Math.hypot(e.clientX - a.x, e.clientY - a.y) < 6) return;
     setHover((prev) => (prev === i ? prev : i));
   };
   const onPointerLeave = (e: PointerEvent) => {
@@ -82,7 +106,7 @@ export function CardFlick() {
                   onPointerLeave={onPointerLeave}
                   onFocus={() => setHover(i)}
                   onBlur={() => setHover(null)}
-                  style={{ width: on ? "50%" : rest }}
+                  style={{ flexGrow: on ? ACTIVE_GROW : 1 }}
                 >
                   <div className="card-flick_item-inner">
                     <div className="card-flick_image">

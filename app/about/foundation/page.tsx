@@ -117,22 +117,25 @@ export default function FoundationPage() {
         </div>
       </section>
 
-      <section className="padding-large bg-white fn-group">
-        <div className="container-large">
-          <div className="home-intro_layout u-grid no-gap">
-            <div className="fn-group_box">
-              <p className="fn-note layout-title_sm">{placeholder.label}</p>
-              <h2 className="h3 fn-h">{placeholder.title}</h2>
-              {placeholder.body.map((text) => (
-                <p key={text} className="t-body fn-body">
-                  {text}
-                </p>
-              ))}
+      {/* V68: dashed placeholder box removed entirely per Neel
+      {placeholder.body.length > 0 && (
+        <section className="padding-large bg-white fn-group">
+          <div className="container-large">
+            <div className="home-intro_layout u-grid no-gap">
+              <div className="fn-group_box">
+                <h2 className="h3 fn-h">{placeholder.title}</h2>
+                {placeholder.body.map((text) => (
+                  <p key={text} className="t-body fn-body">
+                    {text}
+                  </p>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )} */}
 
+      {/* V67: "Work with us" band removed per Neel
       <section className="fn-cta">
         <div className="container-large v-flex_center">
           <p className="layout-title">{cta.label}</p>
@@ -149,6 +152,7 @@ export default function FoundationPage() {
           </div>
         </div>
       </section>
+      */}
     </main>
   );
 }

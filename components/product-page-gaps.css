@@ -1,0 +1,219 @@
+/*
+ * Product pages (/itineraries/<slug>): spacing of the intro section between
+ * the full-screen hero image and the "Key specs" block (ProductExtras).
+ * The shared section.padding-large gives 320px top and bottom (160px on
+ * mobile), which left a large empty band below the hero and above Key specs.
+ * Tightened to the normal section gap used on the home page: 140px desktop,
+ * 80px mobile. Scoped to the product page: the intro section that directly
+ * follows the hero in a <main> followed by the ProductExtras section (.px).
+ */
+main.page-main:has(~ section.px) > .hero-banner + section.padding-large {
+  padding-top: var(--size-875);
+  padding-bottom: var(--size-875);
+}
+
+@media (max-width: 767px) {
+  main.page-main:has(~ section.px) > .hero-banner + section.padding-large {
+    padding-top: var(--size-5);
+    padding-bottom: var(--size-5);
+  }
+}
+
+/*
+ * The intro text block (.px-intro-left, page.tsx) has nothing in the left
+ * half, so on desktop and tablet it starts at the left content column instead
+ * of the right half. Same width (span 6). Phones keep their stacked layout.
+ */
+@media (min-width: 768px) {
+  .hero-banner + section.padding-large .home-intro_col.px-intro-left {
+    grid-column-start: 2;
+  }
+}
+
+/*
+ * V65: product pages on phones. The intro block (WHITE OPC + text) sat in a
+ * narrow indented column (grid 2 / span 6, ~177px at 390) while Key specs,
+ * Applications, Performance and FAQ run full width from the container edge.
+ * Align the intro to the same left edge and full width on phones.
+ */
+@media (max-width: 767px) {
+  .hero-banner + section.padding-large .home-intro_col.px-intro-left {
+    grid-column: 1 / -1;
+  }
+}
+
+/*
+ * V71: desktop and tablet. The ProductExtras section labels (Key specs,
+ * Applications, Performance & sustainability, FAQ) and their row dividers sat
+ * on the container edge while the intro text starts one grid column in
+ * (12-column grid, see .px-intro-left above). Start each block at that same
+ * column so the page has one left line, and keep the right-hand content on
+ * its grid column (column 7, the page half): left column = columns 2-6.
+ * Phones keep the V65 single 12px left edge.
+ */
+@media (min-width: 768px) {
+  section.px > .container-large > .px-block {
+    margin-left: calc(100% / 12);
+    grid-template-columns: calc(100% * 5 / 11) minmax(0, 1fr);
+    column-gap: 0;
+  }
+
+  section.px > .container-large > .px-block > .px-label {
+    padding-right: 2em;
+  }
+}
+
+/*
+ * V74 (a): closing photo on the product pages, the last block above the
+ * footer. 16:9, cover, site radius. 140px from the FAQ (its block loses its
+ * bottom padding) and 140px to the footer; 80px on phones.
+ * Desktop and tablet: starts on the V71 left line and runs to the right edge.
+ */
+section.px > .container-large > .px-end {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-top: var(--size-875);
+}
+
+section.px > .container-large > .px-block:has(+ .px-end) {
+  padding-bottom: 0;
+}
+
+section.px:has(.px-end) {
+  padding-bottom: var(--size-875);
+}
+
+@media (min-width: 768px) {
+  section.px > .container-large > .px-end {
+    margin-left: calc(100% / 12);
+  }
+}
+
+@media (max-width: 767px) {
+  section.px > .container-large > .px-end {
+    margin-top: var(--size-5);
+  }
+
+  section.px:has(.px-end) {
+    padding-bottom: var(--size-5);
+  }
+}
+
+/*
+ * V74 (b): FAQ plus icons in one column. The icon was absolutely centred on
+ * the whole question (and shifted on the first row), so on wrapped questions
+ * it drifted. Now the question is a flex row: text left, icon pinned to the
+ * right edge and centred on the first line. Native open/close unchanged.
+ */
+section.px .px-faq_q {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5em;
+  padding-right: 0;
+}
+
+section.px .px-faq_q::after,
+section.px .px-faq_item:first-child .px-faq_q::after {
+  position: static;
+  transform: none;
+  top: auto;
+  flex: 0 0 1em;
+  width: 1em;
+  text-align: center;
+  line-height: inherit;
+}
+
+/*
+ * V79: two closing photos side by side (stacked on phones). The V74 spacing
+ * and left line move to the pair wrapper; each photo keeps 16:9 and radius.
+ */
+section.px > .container-large > .px-end-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1em;
+  margin-top: var(--size-875);
+}
+
+section.px > .container-large > .px-end-pair.is-single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+section.px > .container-large > .px-end-pair > .px-end {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+section.px > .container-large > .px-block:has(+ .px-end-pair) {
+  padding-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  section.px > .container-large > .px-end-pair {
+    margin-left: calc(100% / 12);
+  }
+}
+
+@media (max-width: 767px) {
+  section.px > .container-large > .px-end-pair {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: var(--size-5);
+  }
+}
+
+/*
+ * V81: FAQ plus icons sit just after the question column instead of at the
+ * page edge. Each question row is capped at 37em (about 520px at 1440) from
+ * the question start, with the icon right-aligned in it, so the icons form
+ * one column. On phones the row stops 2.75em short of the right edge so the
+ * icon stays clear of the fixed "How it works" tab. Open/close unchanged.
+ */
+section.px .px-faq_q {
+  max-width: 37em;
+}
+
+@media (max-width: 767px) {
+  section.px .px-faq_q {
+    max-width: calc(100% - 2.75em);
+  }
+}
+
+/*
+ * V83: the 37em cap (V81) still left the plus icons far from questions that
+ * are only 8-17em long. Now the FAQ list shrink-wraps to its longest question:
+ * every row is as wide as the longest question + a 2em gap + the icon, so the
+ * icons form one column just past the longest question on each page. The
+ * answers wrap inside that width (they no longer widen the list) with a
+ * 14em minimum (about 16em of question text) so they stay readable. Divider lines follow the list width.
+ * On phones the list also stops 2.75em short of the right edge so the icons
+ * stay clear of the fixed "How it works" tab. Native open/close unchanged.
+ */
+section.px .px-block > .px-faq {
+  width: max-content !important;
+  min-width: min(100%, 14em) !important;
+  max-width: 100% !important;
+}
+
+section.px .px-block > .px-faq > .px-faq_item > summary.px-faq_q {
+  display: flex !important;
+  justify-content: space-between !important;
+  gap: 2em !important;
+  width: auto !important;
+  max-width: none !important;
+}
+
+section.px .px-block > .px-faq > .px-faq_item > .px-faq_a {
+  width: 0 !important;
+  min-width: 100% !important;
+  max-width: none !important;
+}
+
+@media (max-width: 767px) {
+  section.px .px-block > .px-faq {
+    max-width: calc(100% - 2.75em) !important;
+  }
+}

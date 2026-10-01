@@ -88,6 +88,7 @@ export default function FounderPage() {
         </div>
       </section>
 
+      {/* V67: "Work with us" band removed per Neel
       <section className="fd-cta" data-nav-theme="light">
         <div className="container-large v-flex_center">
           <p className="layout-title">{cta.label}</p>
@@ -104,6 +105,7 @@ export default function FounderPage() {
           </div>
         </div>
       </section>
+      */}
     </main>
   );
 }
